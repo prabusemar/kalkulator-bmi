@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips Kesehatan untuk Berat Badan Ideal - BMI Calculator</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Tips Page Specific Styles */
+        .tips-header {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 3rem;
+        }
+
+        .tips-header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tips-header p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .tips-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tip-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #2ecc71;
+        }
+
+        .tip-section h2 {
+            color: #2ecc71;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .tip-card h3 {
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .tip-card h3 i {
+            color: #2ecc71;
+        }
+
+        .celebration-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .exercise-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid #e9ecef;
+            transition: transform 0.3s ease;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            border-color: #2ecc71;
+        }
+
+        .exercise-card h4 {
+            color: #2ecc71;
+            margin-bottom: 0.5rem;
+        }
+
+        .exercise-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .exercise-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .exercise-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .meal-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .meal-time {
+            background: white;
+            border-radius: 10px;
+            padding: 1.2rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .meal-time h4 {
+            color: #2ecc71;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .goals-tracker {
+            background: linear-gradient(135deg, #2ecc71, #3498db);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .goals-tracker h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .simple-term {
+            background: #d4edda;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: 500;
+            border: 1px solid #28a745;
+        }
+
+        .warning-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.2rem;
+            border: 2px solid #e9ecef;
+            text-align: center;
+        }
+
+        .benefit-card i {
+            font-size: 2rem;
+            color: #2ecc71;
+            margin-bottom: 0.5rem;
+        }
+
+        .muscle-building-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .muscle-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .muscle-card h4 {
+            color: #2ecc71;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .tips-header {
+                padding: 3rem 0;
+            }
+
+            .tips-header h1 {
+                font-size: 2rem;
+            }
+
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .tip-section {
+                padding: 1.5rem;
+            }
+
+            .exercise-grid,
+            .muscle-building-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Tips Header -->
+    <header class="tips-header">
+        <button class="back-button" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+        <div class="container">
+            <h1><i class="fas fa-trophy"></i> Selamat! Berat Badan Anda Ideal</h1>
+            <p>Panduan untuk mempertahankan berat badan ideal dan meningkatkan kesehatan</p>
+        </div>
+    </header>
+
+    <!-- Tips Content -->
+    <main class="tips-content">
+        <!-- Celebration -->
+        <section class="tip-section">
+            <div class="celebration-box">
+                <h3><i class="fas fa-medal"></i> Congratulations!</h3>
+                <p>Anda sudah mencapai berat badan ideal! Sekarang fokus pada:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                    <div style="background: rgba(40, 167, 69, 0.2); padding: 10px 15px; border-radius: 8px;">
+                        <i class="fas fa-heartbeat"></i> Mempertahankan berat
+                    </div>
+                    <div style="background: rgba(40, 167, 69, 0.2); padding: 10px 15px; border-radius: 8px;">
+                        <i class="fas fa-dumbbell"></i> Membangun otot
+                    </div>
+                    <div style="background: rgba(40, 167, 69, 0.2); padding: 10px 15px; border-radius: 8px;">
+                        <i class="fas fa-brain"></i> Meningkatkan kebugaran
+                    </div>
+                </div>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-heart"></i>
+                    <h4>Risiko Penyakit Rendah</h4>
+                    <p>Risiko diabetes, jantung, dan stroke lebih rendah</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-running"></i>
+                    <h4>Energi Optimal</h4>
+                    <p>Tubuh lebih efisien dalam beraktivitas</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Kesehatan Mental</h4>
+                    <p>Lebih percaya diri dan mood stabil</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maintenance Section -->
+        <section class="tip-section">
+            <h2><i class="fas fa-balance-scale"></i> Tips Mempertahankan Berat Badan</h2>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-utensils"></i> Maintenance Calories</h3>
+                <p><span class="simple-term">Maintenance Calories</span> = jumlah kalori yang perlu dimakan untuk
+                    <strong>mempertahankan berat badan saat ini</strong>.</p>
+                <p><strong>Rumus sederhana:</strong> Berat badan (kg) × 30 = perkiraan kalori maintenance</p>
+                <p><strong>Contoh:</strong> 65kg × 30 = 1950 kalori per hari</p>
+                <div class="warning-note">
+                    <strong>Tips:</strong> Pantau berat badan 1x seminggu. Jika naik 1-2kg, kurangi 200-300 kalori/hari
+                    selama seminggu.
+                </div>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-check-circle"></i> Pola Makan Seimbang</h3>
+                <p>Pertahankan pola makan sehat dengan komposisi:</p>
+                <ul>
+                    <li><strong>40% Karbohidrat:</strong> Nasi merah, oats, roti gandum, kentang</li>
+                    <li><strong>30% Protein:</strong> Ayam, ikan, telur, tahu, tempe</li>
+                    <li><strong>30% Lemak sehat:</strong> Alpukat, kacang-kacangan, minyak zaitun</li>
+                    <li><strong>Plus:</strong> Banyak sayur dan buah untuk vitamin</li>
+                </ul>
+            </div>
+
+            <h3>Menu Maintenance Harian (1800-2200 kalori)</h3>
+            <div class="meal-plan">
+                <div class="meal-time">
+                    <h4>Sarapan (07:00)</h4>
+                    <p>Oatmeal + pisang + 2 telur + segelas susu</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Snack Pagi (10:00)</h4>
+                    <p>1 buah apel + segenggam kacang almond</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Makan Siang (13:00)</h4>
+                    <p>Nasi merah + ayam panggang + sayur + tahu/tempe</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Pre-Workout (17:00)</h4>
+                    <p>Pisang atau 1 potong roti gandum</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Post-Workout (19:30)</h4>
+                    <p>Protein shake atau 2 butir telur</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Makan Malam (20:00)</h4>
+                    <p>Ikan bakar + sayuran + sedikit nasi merah</p>
+                </div>
+            </div>
+
+            <div class="tip-card" style="margin-top: 1.5rem;">
+                <h3><i class="fas fa-glass-whiskey"></i> Flexibel tapi Kontrol</h3>
+                <ul>
+                    <li><strong>80/20 Rule:</strong> 80% makanan sehat, 20% makanan favorit</li>
+                    <li><strong>Cheat meal:</strong> 1x seminggu makan makanan favorit</li>
+                    <li><strong>Mindful eating:</strong> Makan perlahan, nikmati setiap suap</li>
+                    <li><strong>Jangan skip makan:</strong> Bisa bikin overeat nanti</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Muscle Building Section -->
+        <section class="tip-section">
+            <h2><i class="fas fa-dumbbell"></i> Program Membangun Otot (Bulking)</h2>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-chart-line"></i> Clean Bulking</h3>
+                <p><span class="simple-term">Clean Bulking</span> = naik berat badan dengan <strong>makan lebih banyak
+                        makanan sehat</strong>, bukan junk food.</p>
+                <p><strong>Target:</strong> Tambah 200-300 kalori/hari dari maintenance</p>
+                <p><strong>Hasil:</strong> Naik 0.25-0.5kg otot per minggu</p>
+                <div class="warning-note">
+                    <strong>Perhatian:</strong> Jangan dirty bulk (makan semua makanan). Fokus pada protein dan makanan
+                    bergizi.
+                </div>
+            </div>
+
+            <h3>Program Weight Lifting 4-5 Hari/Minggu</h3>
+            <div class="muscle-building-grid">
+                <div class="muscle-card">
+                    <h4>Hari 1: Chest & Triceps</h4>
+                    <ul>
+                        <li>Bench Press - 4 set x 6-8 repetisi</li>
+                        <li>Incline Dumbbell Press - 3 set x 8-10</li>
+                        <li>Cable Fly - 3 set x 10-12</li>
+                        <li>Triceps Pushdown - 3 set x 10-12</li>
+                        <li>Overhead Triceps Extension - 3 set x 10-12</li>
+                    </ul>
+                    <p><strong>Tips:</strong> Fokus pada progressive overload (tambah berat sedikit demi sedikit)</p>
+                </div>
+
+                <div class="muscle-card">
+                    <h4>Hari 2: Back & Biceps</h4>
+                    <ul>
+                        <li>Pull-ups/Lat Pulldown - 4 set x 6-10</li>
+                        <li>Bent Over Barbell Row - 3 set x 8-10</li>
+                        <li>Seated Cable Row - 3 set x 10-12</li>
+                        <li>Barbell Curl - 3 set x 8-10</li>
+                        <li>Hammer Curl - 3 set x 10-12</li>
+                    </ul>
+                    <p><strong>Mind-muscle connection:</strong> Fokus pada otot yang dikerjakan</p>
+                </div>
+
+                <div class="muscle-card">
+                    <h4>Hari 3: Legs</h4>
+                    <ul>
+                        <li>Squat - 4 set x 6-8</li>
+                        <li>Leg Press - 3 set x 8-10</li>
+                        <li>Romanian Deadlift - 3 set x 8-10</li>
+                        <li>Leg Extension - 3 set x 10-12</li>
+                        <li>Leg Curl - 3 set x 10-12</li>
+                    </ul>
+                    <p><strong>Jangan skip leg day!</strong> Otot kaki besar, bakar kalori lebih banyak</p>
+                </div>
+
+                <div class="muscle-card">
+                    <h4>Hari 4: Shoulders & Abs</h4>
+                    <ul>
+                        <li>Overhead Press - 4 set x 6-8</li>
+                        <li>Lateral Raise - 3 set x 10-12</li>
+                        <li>Face Pull - 3 set x 12-15</li>
+                        <li>Hanging Leg Raise - 3 set x 10-15</li>
+                        <li>Cable Crunch - 3 set x 15-20</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tip-card" style="margin-top: 1.5rem;">
+                <h3><i class="fas fa-dumbbell"></i> Progressive Overload</h3>
+                <p><span class="simple-term">Progressive Overload</span> = <strong>terus menambah
+                        beban/intensitas</strong> latihan untuk otot berkembang.</p>
+                <p><strong>Cara menerapkan:</strong></p>
+                <ul>
+                    <li><strong>Tambah berat:</strong> Jika bisa lakukan 12 repetisi dengan mudah, tambah 2.5-5kg</li>
+                    <li><strong>Tambah repetisi:</strong> Targetkan lebih banyak repetisi dengan berat sama</li>
+                    <li><strong>Tambah set:</strong> Tambah 1 set ekstra untuk setiap gerakan</li>
+                    <li><strong>Kurangi rest time:</strong> Kurangi waktu istirahat antar set</li>
+                </ul>
+                <p><strong>Catatan:</strong> Fokus pada form yang benar dulu, baru tambah beban!</p>
+            </div>
+
+            <div class="tip-card" style="margin-top: 1.5rem;">
+                <h3><i class="fas fa-utensils"></i> Nutrisi untuk Muscle Gain</h3>
+                <ul>
+                    <li><strong>Protein:</strong> 1.6-2.2g per kg berat badan (contoh: 65kg × 2 = 130g protein/hari)
+                    </li>
+                    <li><strong>Karbohidrat:</strong> Sumber energi utama untuk latihan berat</li>
+                    <li><strong>Lemak sehat:</strong> Penting untuk hormon testosteron</li>
+                    <li><strong>Waktu makan:</strong> Pre-workout (1-2 jam sebelum) dan post-workout (dalam 2 jam
+                        setelah)</li>
+                </ul>
+                <p><strong>Suplementasi (optional):</strong></p>
+                <ul>
+                    <li>Whey protein (setelah latihan)</li>
+                    <li>Creatine monohydrate (5g/hari)</li>
+                    <li>Multivitamin untuk remaja aktif</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Cardio & Active Lifestyle -->
+        <section class="tip-section">
+            <h2><i class="fas fa-running"></i> Cardio & Gaya Hidup Aktif</h2>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-heartbeat"></i> Cardio untuk Kesehatan</h3>
+                <p>Meski fokus pada weight lifting, jangan lupakan cardio untuk kesehatan jantung.</p>
+                <p><strong>Rekomendasi:</strong> 150 menit cardio moderat per minggu</p>
+                <ul>
+                    <li><strong>LISS (Low Intensity Steady State):</strong> Jalan cepat 30 menit, 3x seminggu</li>
+                    <li><strong>HIIT (High Intensity Interval Training):</strong> Sprint 30 detik, jalan 60 detik,
+                        ulangi 10x, 1-2x seminggu</li>
+                    <li><strong>Active recovery:</strong> Bersepeda santai, berenang ringan</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-bed"></i> Recovery & Istirahat</h3>
+                <p>Otot tumbuh saat istirahat, bukan saat latihan!</p>
+                <ul>
+                    <li><strong>Tidur 7-9 jam:</strong> Wajib untuk recovery dan hormon pertumbuhan</li>
+                    <li><strong>Rest days:</strong> 2-3 hari istirahat total per minggu</li>
+                    <li><strong>Stretching:</strong> 10-15 menit stretching setelah latihan</li>
+                    <li><strong>Foam rolling:</strong> Untuk mengurangi nyeri otot</li>
+                    <li><strong>Listen to your body:</strong> Jika sakit berlebihan, istirahat lebih lama</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-brain"></i> Mindset & Konsistensi</h3>
+                <ul>
+                    <li><strong>Long-term game:</strong> Membangun otot butuh waktu (bulanan/tahunan)</li>
+                    <li><strong>Document progress:</strong> Foto setiap bulan, catat angkatan beban</li>
+                    <li><strong>Find your why:</strong> Kenapa mau lebih sehat/berotot?</li>
+                    <li><strong>Community:</strong> Bergabung dengan komunitas fitness</li>
+                    <li><strong>Enjoy the process:</strong> Nikmati perjalanan, bukan hanya hasil</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Goals & Tracking -->
+        <section class="goals-tracker">
+            <h3><i class="fas fa-bullseye"></i> Goal Setting untuk Berat Ideal</h3>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div>
+                    <h4>Goal 1: Maintenance</h4>
+                    <p>Pertahankan berat dalam range 2-3kg</p>
+                </div>
+                <div>
+                    <h4>Goal 2: Muscle Gain</h4>
+                    <p>Tambah 2-4kg otot dalam 6 bulan</p>
+                </div>
+                <div>
+                    <h4>Goal 3: Strength</h4>
+                    <p>Tambah angkatan beban 5-10% per bulan</p>
+                </div>
+                <div>
+                    <h4>Goal 4: Health</h4>
+                    <p>Jaga kesehatan jantung & stamina</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h4>Tools untuk Tracking</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 10px 15px; border-radius: 8px;">
+                        <i class="fas fa-weight"></i> Timbangan digital
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 10px 15px; border-radius: 8px;">
+                        <i class="fas fa-camera"></i> Foto progress bulanan
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 10px 15px; border-radius: 8px;">
+                        <i class="fas fa-book"></i> Workout log/jurnal
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 10px 15px; border-radius: 8px;">
+                        <i class="fas fa-mobile-alt"></i> Aplikasi fitness
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- For Students Section -->
+        <section class="tip-section">
+            <h2><i class="fas fa-user-graduate"></i> Tips Khusus untuk Pelajar</h2>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-school"></i> Manage Waktu Sekolah/Kuliah</h3>
+                <ul>
+                    <li><strong>Schedule workout:</strong> Tentukan hari & waktu tetap</li>
+                    <li><strong>Morning workouts:</strong> Olahraga sebelum sekolah (lebih konsisten)</li>
+                    <li><strong>Home workouts:</strong> Jika tidak ke gym, workout di rumah dengan bodyweight/dumbbell
+                    </li>
+                    <li><strong>Study breaks:</strong> Manfaatkan break belajar untuk stretching/bodyweight exercises
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-utensils"></i> Makan Sehat sebagai Pelajar</h3>
+                <ul>
+                    <li><strong>Meal prep:</strong> Siapkan makanan sehat untuk 2-3 hari</li>
+                    <li><strong>Smart choices at kantin:</strong> Pilih nasi + lauk protein + sayur</li>
+                    <li><strong>Snack sehat:</strong> Bawa buah, kacang, yogurt dari rumah</li>
+                    <li><strong>Stay hydrated:</strong> Bawa botol minum ke sekolah</li>
+                    <li><strong>Budget friendly:</strong> Telur, tahu, tempe = protein murah dan sehat</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-users"></i> Social Life & Fitness</h3>
+                <ul>
+                    <li><strong>Workout buddies:</strong> Ajak teman ke gym atau olahraga bersama</li>
+                    <li><strong>Active hangouts:</strong> Main futsal, basket, badminton daripada hanya nongkrong</li>
+                    <li><strong>Balance is key:</strong> Boleh makan enak dengan teman, tapi tetap kontrol porsi</li>
+                    <li><strong>Educate friends:</strong> Bagikan pengetahuan tentang kesehatan</li>
+                </ul>
+            </div>
+
+            <div
+                style="text-align: center; margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="../index.html" class="calculate-btn"
+                    style="display: inline-flex; width: auto; padding: 12px 30px;">
+                    <i class="fas fa-calculator"></i> Hitung Ulang BMI
+                </a>
+                <button onclick="window.print()" class="calculate-btn"
+                    style="display: inline-flex; width: auto; padding: 12px 30px; background: #6c757d;">
+                    <i class="fas fa-print"></i> Print Panduan Ini
+                </button>
+                <a href="overweight.html" class="calculate-btn"
+                    style="display: inline-flex; width: auto; padding: 12px 30px; background: #f39c12;">
+                    <i class="fas fa-arrow-right"></i> Tips untuk Overweight
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back button functionality
+        document.querySelector('.back-button').addEventListener('click', function () {
+            if (document.referrer && document.referrer.includes(window.location.hostname)) {
+                window.history.back();
+            } else {
+                window.location.href = '../index.html';
+            }
+        });
+
+        // Highlight simple terms
+        document.querySelectorAll('.simple-term').forEach(term => {
+            term.addEventListener('click', function () {
+                this.style.backgroundColor = '#2ecc71';
+                this.style.color = 'white';
+                setTimeout(() => {
+                    this.style.backgroundColor = '#d4edda';
+                    this.style.color = 'inherit';
+                }, 1000);
+            });
+        });
+
+        // Print button functionality
+        document.querySelector('button[onclick="window.print()"]')?.addEventListener('click', function () {
+            window.print();
+        });
+
+        // Motivational messages for ideal weight
+        window.addEventListener('load', function () {
+            const messages = [
+                "Selamat! Berat badan ideal adalah pencapaian yang luar biasa 🏆",
+                "Ingat: Maintenance lebih sulit daripada penurunan berat badan. Stay consistent! 💪",
+                "Waktunya fokus pada strength dan health, bukan hanya angka di timbangan! 🏋️‍♂️"
+            ];
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            console.log(`%c${randomMsg}`, 'color: #2ecc71; font-size: 14px; font-weight: bold;');
+
+            // Celebration confetti effect
+            const confetti = () => {
+                const colors = ['#2ecc71', '#27ae60', '#3498db', '#f1c40f'];
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-20px';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.pointerEvents = 'none';
+                    document.body.appendChild(confetti);
+
+                    // Animation
+                    const animation = confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: 2000 + Math.random() * 2000,
+                        easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                    });
+
+                    animation.onfinish = () => confetti.remove();
+                }
+            };
+
+            // Run confetti on page load
+            setTimeout(confetti, 500);
+        });
+    </script>
+</body>
+
+</html>
