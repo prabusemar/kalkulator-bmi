@@ -246,6 +246,14 @@
                 bmiRange = "30 atau lebih";
             }
 
+            // Tentukan halaman tips berdasarkan kategori
+            const tipsPages = {
+                'underweight': 'tips/underweight.html',
+                'normal': 'tips/ideal.html',
+                'overweight': 'tips/overweight.html',
+                'obese': 'tips/obesitas.html'
+            };
+
             // Display result
             const resultHTML = `
                 <div class="result-main ${categoryClass}">
@@ -290,9 +298,9 @@
                     </div>
                     
                     <div class="result-actions">
-                        <button class="btn-tips" onclick="showTips('${categoryClass}')">
+                        <a href="${tipsPages[categoryClass]}" class="btn-tips">
                             <i class="fas fa-book"></i> Lihat Tips Lengkap
-                        </button>
+                        </a>
                         <button class="btn-reset" onclick="resetCalculator()">
                             <i class="fas fa-redo"></i> Hitung Lagi
                         </button>
@@ -348,13 +356,6 @@
             document.querySelectorAll('input').forEach(input => {
                 input.classList.remove('error');
             });
-        }
-
-        function showTips(category) {
-            // Ini akan diimplementasikan nanti di file hasil.html
-            alert(`Tips untuk kategori ${category} akan tersedia di halaman berikutnya.`);
-            // Untuk sementara kita buat placeholder
-            // location.href = `tips/${category}.html`;
         }
 
         function resetCalculator() {

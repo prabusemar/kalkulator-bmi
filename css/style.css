@@ -809,6 +809,8 @@ a:hover {
     gap: var(--space-sm);
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    text-align: center;
 }
 
 .btn-tips {
@@ -825,6 +827,7 @@ a:hover {
 .btn-tips:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
+    color: var(--lighter);
 }
 
 .btn-reset:hover {
@@ -1311,52 +1314,6 @@ a:hover {
 
     .detail-value {
         font-size: 1.1rem;
-    }
-}
-
-/* Dark Mode Support (Optional) */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --dark: #f8f9fa;
-        --light: #1a1a2e;
-        --lighter: #16213e;
-        --gray-light: #2d3748;
-        --gray-dark: #a0aec0;
-        --gradient-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    }
-
-    body {
-        color: var(--dark);
-    }
-
-    .calculator-card,
-    .result-main,
-    .categories-section {
-        background: var(--lighter);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    }
-
-    .input-with-unit input {
-        background: var(--light);
-        color: var(--dark);
-        border-color: var(--gray-light);
-    }
-
-    .gender-card {
-        background: var(--light);
-    }
-
-    .detail-item {
-        background: var(--light);
-    }
-
-    .bmi-details {
-        background: var(--light);
-    }
-
-    .bmi-bar,
-    .bmi-score {
-        background: var(--light);
     }
 }
 
