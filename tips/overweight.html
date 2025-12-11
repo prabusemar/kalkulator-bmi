@@ -560,9 +560,7 @@
                 <a href="../index.html" class="calculate-btn" style="display: inline-flex; width: auto; padding: 12px 30px;">
                     <i class="fas fa-calculator"></i> Hitung Ulang BMI
                 </a>
-                <button onclick="window.print()" class="calculate-btn" style="display: inline-flex; width: auto; padding: 12px 30px; background: #6c757d;">
-                    <i class="fas fa-print"></i> Print Panduan Ini
-                </button>
+                
             </div>
         </section>
     </main>
@@ -601,11 +599,6 @@
                     this.style.color = 'inherit';
                 }, 1000);
             });
-        });
-        
-        // Print button functionality
-        document.querySelector('button[onclick="window.print()"]')?.addEventListener('click', function() {
-            window.print();
         });
         
         // Motivational message

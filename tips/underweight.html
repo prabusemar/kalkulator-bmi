@@ -19,6 +19,7 @@
             text-align: center;
             border-radius: 0 0 24px 24px;
             margin-bottom: 3rem;
+            position: relative;
         }
 
         .tips-header h1 {
@@ -194,15 +195,15 @@
             margin: 5px;
             font-weight: 500;
             border: 1px solid #17a2b8;
+            cursor: help;
         }
 
         .calorie-dense-foods {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin: 1rem 0;
-            font-size: 0.9rem;
+            margin: 1.5rem 0;
         }
 
         .challenges-grid {
@@ -245,6 +246,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* FIXED: Calorie dense foods grid - responsive */
         .high-calorie-snacks {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -258,39 +260,328 @@
             padding: 1rem;
             text-align: center;
             border: 2px solid #e9ecef;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
         }
 
-        @media (max-width: 768px) {
+        .snack-item:hover {
+            transform: translateY(-3px);
+            border-color: #3498db;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .btn-action {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-success {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Smoothie recipes section */
+        .smoothie-recipes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .smoothie-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .smoothie-card h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive fixes for very small screens */
+        @media (max-width: 384px) {
+            .tips-header {
+                padding: 3rem 0 2rem !important;
+            }
+
+            .tips-header h1 {
+                font-size: 1.5rem !important;
+                padding: 0 10px;
+            }
+
+            .tips-header p {
+                font-size: 0.9rem !important;
+                padding: 0 15px;
+            }
+
+            .back-button {
+                top: 1rem !important;
+                left: 1rem !important;
+                padding: 8px 12px !important;
+                font-size: 0.8rem !important;
+            }
+
+            .tips-content {
+                padding: 0 10px !important;
+            }
+
+            .tip-section {
+                padding: 1.2rem !important;
+                margin: 0 -10px 1.5rem !important;
+                width: calc(100% + 20px) !important;
+                border-radius: 12px !important;
+            }
+
+            .tip-card {
+                padding: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .tip-section h2 {
+                font-size: 1.2rem !important;
+            }
+
+            .tip-card h3 {
+                font-size: 1rem !important;
+            }
+
+            /* FIXED: High calorie snacks grid untuk mobile sangat kecil */
+            .high-calorie-snacks {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.8rem !important;
+            }
+
+            .snack-item {
+                padding: 0.8rem 0.5rem !important;
+                min-width: 0 !important;
+                /* Pastikan tidak overflow */
+                overflow: hidden !important;
+            }
+
+            .snack-item h5 {
+                font-size: 0.85rem !important;
+                margin-bottom: 0.3rem !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+
+            .snack-item p {
+                font-size: 0.75rem !important;
+                margin: 0 !important;
+            }
+
+            .exercise-grid,
+            .weight-gain-grid,
+            .smoothie-recipes {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .meal-plan {
+                grid-template-columns: 1fr !important;
+                gap: 0.8rem !important;
+            }
+
+            .meal-time {
+                padding: 1rem !important;
+            }
+
+            .progress-tracker {
+                padding: 1.5rem 1rem !important;
+                margin: 0 -10px 1.5rem !important;
+                width: calc(100% + 20px) !important;
+                border-radius: 12px !important;
+            }
+
+            .progress-tracker h3 {
+                font-size: 1.1rem !important;
+            }
+
+            .simple-term {
+                font-size: 0.85rem !important;
+                padding: 6px 10px !important;
+                margin: 3px !important;
+            }
+
+            .encouragement-box,
+            .calorie-dense-foods {
+                padding: 1rem !important;
+                margin: 1rem 0 !important;
+            }
+
+            .challenges-grid {
+                grid-template-columns: 1fr !important;
+                gap: 0.8rem !important;
+            }
+
+            .challenge-card {
+                padding: 1rem !important;
+            }
+
+            .challenge-card i {
+                font-size: 1.5rem !important;
+            }
+
+            .action-buttons {
+                flex-direction: column !important;
+                gap: 0.8rem !important;
+            }
+
+            .btn-action {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 12px 16px !important;
+                font-size: 0.9rem !important;
+            }
+
+            .weight-gain-card,
+            .smoothie-card {
+                padding: 1rem !important;
+            }
+
+            .exercise-card {
+                padding: 1rem !important;
+            }
+
+            .exercise-card h4 {
+                font-size: 0.95rem !important;
+            }
+
+            .exercise-card li {
+                font-size: 0.85rem !important;
+                padding-left: 1.2rem !important;
+                margin-bottom: 0.3rem !important;
+            }
+
+            /* Ensure no horizontal scroll */
+            html,
+            body {
+                overflow-x: hidden !important;
+                max-width: 100% !important;
+                position: relative !important;
+            }
+
+            * {
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        /* For screens 385px - 480px */
+        @media (min-width: 385px) and (max-width: 480px) {
             .tips-header {
                 padding: 3rem 0;
             }
 
             .tips-header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .back-button {
-                top: 1rem;
-                left: 1rem;
+                top: 1.5rem;
+                left: 1.5rem;
                 padding: 8px 16px;
-                font-size: 0.9rem;
             }
 
             .tip-section {
                 padding: 1.5rem;
             }
 
-            .exercise-grid,
-            .weight-gain-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .challenges-grid {
-                grid-template-columns: 1fr;
-            }
-
+            /* FIXED: High calorie snacks untuk 385-480px */
             .high-calorie-snacks {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+
+            .exercise-grid,
+            .weight-gain-grid,
+            .smoothie-recipes {
+                grid-template-columns: 1fr;
+            }
+
+            .meal-plan {
                 grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* For screens 481px - 768px */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .high-calorie-snacks {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .smoothie-recipes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animation for simple terms */
+        @keyframes termHighlight {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .simple-term.highlighted {
+            animation: termHighlight 0.5s ease;
+            background: #3498db;
+            color: white;
+        }
+
+        /* Print styles */
+        @media print {
+
+            .back-button,
+            .action-buttons {
+                display: none !important;
+            }
+
+            .tip-section {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                page-break-inside: avoid;
             }
         }
     </style>
@@ -304,7 +595,7 @@
         </button>
         <div class="container">
             <h1><i class="fas fa-arrow-up"></i> Panduan Menambah Berat Badan Sehat</h1>
-            <p>Tips praktis untuk mencapai berat badan ideal dengan cara yang sehat dan aman</p>
+            <p>Program 3 bulan untuk mencapai berat badan ideal dengan cara yang sehat dan berkelanjutan</p>
         </div>
     </header>
 
@@ -312,70 +603,82 @@
     <main class="tips-content">
         <!-- Introduction -->
         <section class="tip-section">
-            <h2><i class="fas fa-info-circle"></i> Memahami Underweight</h2>
+            <h2><i class="fas fa-info-circle"></i> Memahami Underweight dengan Benar</h2>
 
             <div class="encouragement-box">
                 <h3><i class="fas fa-star"></i> Anda Bisa Melakukannya!</h3>
-                <p>Menambah berat badan sama pentingnya dengan menurunkan berat badan. Yang penting <strong>sehat dan
-                        bertahap!</strong></p>
+                <p>Menambah berat badan sehat membutuhkan kesabaran dan strategi yang tepat. <strong>Konsistensi adalah
+                        kunci!</strong></p>
             </div>
 
-            <p><strong>Underweight</strong> artinya tubuh kurang menyimpan energi (dalam bentuk lemak dan otot).
-                Penyebab umum:</p>
+            <p><strong>Underweight</strong> artinya tubuh kekurangan cadangan energi. Penyebab umum:</p>
 
             <div class="challenges-grid">
                 <div class="challenge-card">
                     <i class="fas fa-utensils"></i>
-                    <h4>Makan Tidak Cukup</h4>
-                    <p>Porsi kecil atau sering lupa makan</p>
+                    <h4>Asupan Kurang</h4>
+                    <p>Konsumsi kalori tidak cukup untuk kebutuhan tubuh</p>
                 </div>
                 <div class="challenge-card">
-                    <i class="fas fa-running"></i>
+                    <i class="fas fa-bolt"></i>
                     <h4>Metabolisme Cepat</h4>
-                    <p>Tubuh membakar kalori sangat cepat</p>
+                    <p>Tubuh membakar kalori lebih cepat dari rata-rata</p>
                 </div>
                 <div class="challenge-card">
-                    <i class="fas fa-stress"></i>
+                    <i class="fas fa-brain"></i>
                     <h4>Stress Tinggi</h4>
-                    <p>Stress bisa mengurangi nafsu makan</p>
+                    <p>Stress kronis bisa menurunkan nafsu makan</p>
                 </div>
                 <div class="challenge-card">
                     <i class="fas fa-dna"></i>
                     <h4>Faktor Genetik</h4>
-                    <p>Badan kurus sejak kecil</p>
+                    <p>Postur tubuh kurus sejak kecil</p>
                 </div>
             </div>
 
             <div class="calorie-dense-foods">
-                <h4><i class="fas fa-lightbulb"></i> Konsep Penting:</h4>
-                <p><strong>Surplus Kalori</strong> = makan lebih banyak kalori daripada yang tubuh bakar. Ini cara sehat
-                    naik berat badan.</p>
-                <p><strong>Target:</strong> Tambah 300-500 kalori/hari dari kebutuhan normal</p>
+                <h4><i class="fas fa-lightbulb"></i> Konsep Penting untuk Underweight:</h4>
+                <p><span class="simple-term">Surplus Kalori</span> = makan lebih banyak kalori daripada yang tubuh bakar
+                    setiap hari.</p>
+                <p><strong>Target awal:</strong> Tambah 300-500 kalori/hari dari kebutuhan normal Anda</p>
             </div>
         </section>
 
-        <!-- Nutrition Section -->
+        <!-- Phase 1: Foundation (Month 1) -->
         <section class="tip-section">
-            <h2><i class="fas fa-utensils"></i> Strategi Makan untuk Naik Berat</h2>
+            <h2><i class="fas fa-flag"></i> Fase 1: Foundation (Bulan 1)</h2>
+            <p><strong>Tujuan:</strong> Membangun kebiasaan makan lebih sering dan olahraga dasar</p>
 
             <div class="tip-card">
-                <h3><i class="fas fa-plus-circle"></i> Surplus Kalori Sehat</h3>
-                <p><span class="simple-term">Surplus Kalori</span> artinya Anda makan <strong>lebih banyak kalori
-                        sehat</strong> daripada yang tubuh bakar.</p>
-                <p><strong>Cara sederhana:</strong> Tambah 1-2 snack sehat per hari dari biasanya.</p>
-                <p><strong>Contoh tambahan 500 kalori:</strong></p>
+                <h3><i class="fas fa-plus-circle"></i> Nutrisi Bulan Pertama</h3>
+                <p><span class="simple-term">Surplus Kalori Ringan</span> = Tambah 300 kalori/hari dengan cara pintar.
+                </p>
+                <p><strong>Strategi praktis:</strong></p>
                 <ul>
-                    <li>1 porsi peanut butter sandwich (300 kalori)</li>
-                    <li>1 gelas smoothie pisang + susu (200 kalori)</li>
-                    <li>Total: +500 kalori tanpa merasa terlalu kenyang</li>
+                    <li>Makan 5-6x sehari (3 makan besar + 2-3 snack)</li>
+                    <li>Minum kalori (smoothie, susu) lebih mudah daripada makan</li>
+                    <li>Tambah 1 sdm minyak zaitun ke makanan</li>
+                    <li>Selalu siapkan snack tinggi kalori di tas</li>
                 </ul>
             </div>
 
             <div class="tip-card">
-                <h3><i class="fas fa-apple-alt"></i> Calorie-Dense Foods</h3>
-                <p>Makanan <span class="simple-term">calorie-dense</span> = sedikit volume, banyak kalori. Cocok untuk
-                    yang cepat kenyang.</p>
+                <h3><i class="fas fa-dumbbell"></i> Olahraga Bulan Pertama</h3>
+                <p><strong>Fokus pada compound exercises ringan!</strong></p>
+                <p><strong>Program 3x seminggu:</strong></p>
+                <ul>
+                    <li><strong>Senin:</strong> Bodyweight Squat 3x10 + Push-up (knee) 3x8 + Plank 3x30 detik</li>
+                    <li><strong>Rabu:</strong> Jalan cepat 20 menit + Stretching 10 menit</li>
+                    <li><strong>Jumat:</strong> Lunges 3x10 + Bent Over Row (dengan botol air) 3x10</li>
+                </ul>
+                <p><em>Target: Naik 1-2kg di bulan pertama</em></p>
+            </div>
 
+            <div class="tip-card">
+                <h3><i class="fas fa-apple-alt"></i> Calorie-Dense Foods (Bulan 1)</h3>
+                <p>Makanan tinggi kalori dengan volume kecil, cocok untuk yang cepat kenyang:</p>
+
+                <!-- FIXED: High calorie snacks grid dengan responsive yang benar -->
                 <div class="high-calorie-snacks">
                     <div class="snack-item">
                         <h5>Alpukat</h5>
@@ -403,187 +706,249 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Phase 2: Building (Month 2) -->
+        <section class="tip-section">
+            <h2><i class="fas fa-dumbbell"></i> Fase 2: Building (Bulan 2)</h2>
+            <p><strong>Tujuan:</strong> Meningkatkan intake kalori dan mulai strength training</p>
 
             <div class="tip-card">
-                <h3><i class="fas fa-clock"></i> Frekuensi Makan</h3>
-                <p>Jika sulit makan banyak sekaligus, coba makan lebih sering!</p>
-                <ul>
-                    <li><strong>6x makan kecil</strong> lebih mudah daripada 3x makan besar</li>
-                    <li>Selalu siapkan snack sehat di tas</li>
-                    <li>Minum kalori (smoothie, milkshake sehat) lebih mudah daripada makan</li>
-                    <li>Jangan skip sarapan - mulai hari dengan kalori cukup</li>
-                </ul>
-            </div>
+                <h3><i class="fas fa-utensils"></i> Nutrisi Bulan Kedua</h3>
+                <p><span class="simple-term">Target Protein Tinggi</span> = Protein penting untuk membangun otot, bukan
+                    hanya lemak.</p>
 
-            <h3>Contoh Menu Harian (2500-2800 kalori)</h3>
-            <div class="meal-plan">
-                <div class="meal-time">
-                    <h4>Sarapan (07:00)</h4>
-                    <p>3 butir telur + 2 roti gandum + alpukat + susu</p>
-                </div>
-                <div class="meal-time">
-                    <h4>Snack Pagi (10:00)</h4>
-                    <p>Smoothie pisang + selai kacang + susu</p>
-                </div>
-                <div class="meal-time">
-                    <h4>Makan Siang (13:00)</h4>
-                    <p>Nasi 1.5 piring + ayam + tempe + sayur + minyak zaitun</p>
-                </div>
-                <div class="meal-time">
-                    <h4>Snack Sore (16:00)</h4>
-                    <p>Greek yogurt + granola + madu + kacang</p>
-                </div>
-                <div class="meal-time">
-                    <h4>Pre-Workout (18:00)</h4>
-                    <p>Pisang + segenggam kacang almond</p>
-                </div>
-                <div class="meal-time">
-                    <h4>Post-Workout (20:00)</h4>
-                    <p>Protein shake + pisang</p>
-                </div>
-                <div class="meal-time">
-                    <h4>Makan Malam (20:30)</h4>
-                    <p>Nasi + ikan salmon + sayur + alpukat</p>
-                </div>
-                <div class="meal-time">
-                    <h4>Snack Malam (22:00)</h4>
-                    <p>Keju cottage + buah atau segelas susu hangat</p>
+                <h4>Contoh Piring untuk Weight Gain:</h4>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div style="text-align: center; padding: 1rem; background: #d1ecf1; border-radius: 8px;">
+                        <div style="font-size: 2rem; color: #3498db;">⅓</div>
+                        <strong>Protein</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Ayam, ikan, telur, tempe</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #fff3cd; border-radius: 8px;">
+                        <div style="font-size: 2rem; color: #f39c12;">⅓</div>
+                        <strong>Karbohidrat</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Nasi, kentang, oats</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #d4edda; border-radius: 8px;">
+                        <div style="font-size: 2rem; color: #27ae60;">⅓</div>
+                        <strong>Sayur + Lemak</strong>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Sayur + alpukat/minyak</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="tip-card" style="margin-top: 1.5rem;">
+            <div class="tip-card">
+                <h3><i class="fas fa-weight-hanging"></i> Olahraga Bulan Kedua</h3>
+                <p><strong>Mulai dengan dumbbell ringan (2-5kg)!</strong></p>
+
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <h4>Full Body A (Senin/Kamis)</h4>
+                        <ul>
+                            <li>Goblet Squat - 3 set x 10-12</li>
+                            <li>Dumbbell Bench Press - 3 set x 10-12</li>
+                            <li>Bent Over Row - 3 set x 10-12</li>
+                            <li>Overhead Press - 3 set x 10-12</li>
+                        </ul>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h4>Full Body B (Selasa/Jumat)</h4>
+                        <ul>
+                            <li>Romanian Deadlift - 3 set x 10-12</li>
+                            <li>Incline Dumbbell Press - 3 set x 10-12</li>
+                            <li>Lat Pulldown/Pull-up - 3 set x 8-10</li>
+                            <li>Bicep Curl - 3 set x 12-15</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p><strong>Cardio:</strong> Jalan cepat 15 menit, 2x/minggu (jangan berlebihan)</p>
+                <p><em>Target: Naik 2-3kg di bulan kedua (dengan otot)</em></p>
+            </div>
+
+            <div class="tip-card">
                 <h3><i class="fas fa-blender"></i> High-Calorie Smoothie Recipes</h3>
-                <ul>
-                    <li><strong>Mass Gainer Shake:</strong> 2 scoop protein powder + 1 pisang + 2 sdm selai kacang + 1
-                        sdm madu + 300ml susu full cream (~600 kalori)</li>
-                    <li><strong>Oatmeal Smoothie:</strong> ½ cup oats + 1 pisang + 1 sdm chia seeds + 250ml susu + 1 sdm
-                        madu (~450 kalori)</li>
-                    <li><strong>Avocado Boost:</strong> ½ alpukat + 1 pisang + 250ml susu coklat + 1 sdm whey protein
-                        (~400 kalori)</li>
-                </ul>
+
+                <div class="smoothie-recipes">
+                    <div class="smoothie-card">
+                        <h4>Mass Gainer Shake</h4>
+                        <ul>
+                            <li>2 scoop protein powder</li>
+                            <li>1 pisang besar</li>
+                            <li>2 sdm selai kacang</li>
+                            <li>1 sdm madu</li>
+                            <li>300ml susu full cream</li>
+                            <li><strong>~600 kalori</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="smoothie-card">
+                        <h4>Oat Power Smoothie</h4>
+                        <ul>
+                            <li>½ cup oats (direndam)</li>
+                            <li>1 pisang</li>
+                            <li>1 sdm chia seeds</li>
+                            <li>250ml susu almond</li>
+                            <li>1 sdm madu</li>
+                            <li><strong>~450 kalori</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="smoothie-card">
+                        <h4>Avocado Boost</h4>
+                        <ul>
+                            <li>½ alpukat</li>
+                            <li>1 pisang</li>
+                            <li>250ml susu coklat</li>
+                            <li>1 scoop whey protein</li>
+                            <li>Es batu secukupnya</li>
+                            <li><strong>~400 kalori</strong></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Exercise Section -->
+        <!-- Phase 3: Strength (Month 3) -->
         <section class="tip-section">
-            <h2><i class="fas fa-dumbbell"></i> Olahraga untuk Menambah Massa Otot</h2>
+            <h2><i class="fas fa-trophy"></i> Fase 3: Strength (Bulan 3)</h2>
+            <p><strong>Tujuan:</strong> Membangun kekuatan dan massa otot optimal</p>
 
             <div class="tip-card">
-                <h3><i class="fas fa-weight-hanging"></i> Strength Training Focus</h3>
-                <p>Untuk underweight, fokus pada <span class="simple-term">strength training</span> untuk bangun otot,
-                    bukan cardio untuk bakar kalori.</p>
-                <p><strong>Rasio ideal:</strong> 80% strength training, 20% cardio ringan</p>
-                <div class="calorie-dense-foods">
-                    <strong>Ingat:</strong> Otot lebih berat daripada lemak. Naik berat badan dengan otot lebih sehat
-                    daripada dengan lemak!
+                <h3><i class="fas fa-utensil-spoon"></i> Nutrisi Bulan Ketiga</h3>
+                <p><span class="simple-term">Progressive Overload Nutrition</span> = Nutrisi untuk support peningkatan
+                    beban latihan.</p>
+
+                <div class="weight-gain-card">
+                    <h4>Sample Meal Plan (2800-3000 kalori)</h4>
+                    <div class="meal-plan">
+                        <div class="meal-time">
+                            <h4>07:00 - Sarapan</h4>
+                            <p>3 telur + 2 roti gandum + alpukat + susu</p>
+                        </div>
+                        <div class="meal-time">
+                            <h4>10:00 - Snack 1</h4>
+                            <p>Smoothie pisang + selai kacang</p>
+                        </div>
+                        <div class="meal-time">
+                            <h4>13:00 - Makan Siang</h4>
+                            <p>Nasi 1.5 piring + ayam + tempe + sayur</p>
+                        </div>
+                        <div class="meal-time">
+                            <h4>16:00 - Snack 2</h4>
+                            <p>Greek yogurt + granola + kacang</p>
+                        </div>
+                        <div class="meal-time">
+                            <h4>18:00 - Pre-workout</h4>
+                            <p>Pisang + segenggam almond</p>
+                        </div>
+                        <div class="meal-time">
+                            <h4>20:00 - Post-workout</h4>
+                            <p>Protein shake</p>
+                        </div>
+                        <div class="meal-time">
+                            <h4>20:30 - Makan Malam</h4>
+                            <p>Nasi + ikan salmon + sayur</p>
+                        </div>
+                        <div class="meal-time">
+                            <h4>22:00 - Snack Malam</h4>
+                            <p>Keju cottage atau segelas susu</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3>Program Latihan 3-4 Hari/Minggu</h3>
-            <div class="exercise-grid">
-                <div class="exercise-card">
-                    <h4>Hari 1: Full Body A</h4>
-                    <ul>
-                        <li>Barbell Squat - 4 set x 6-8 repetisi</li>
-                        <li>Bench Press - 4 set x 6-8</li>
-                        <li>Bent Over Row - 3 set x 8-10</li>
-                        <li>Overhead Press - 3 set x 8-10</li>
-                        <li>Plank - 3 set x 60 detik</li>
-                    </ul>
-                    <p><strong>Cardio:</strong> Jalan cepat 10-15 menit</p>
+            <div class="tip-card">
+                <h3><i class="fas fa-dumbbell"></i> Advanced Strength Program</h3>
+                <p><strong>Program 4 hari/minggu split routine:</strong></p>
+
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <h4>Hari 1: Push (Chest/Shoulders/Triceps)</h4>
+                        <ul>
+                            <li>Bench Press - 4 set x 6-8</li>
+                            <li>Overhead Press - 3 set x 8-10</li>
+                            <li>Incline Dumbbell Press - 3 set x 8-10</li>
+                            <li>Triceps Extension - 3 set x 10-12</li>
+                        </ul>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h4>Hari 2: Pull (Back/Biceps)</h4>
+                        <ul>
+                            <li>Deadlift - 3 set x 5-6</li>
+                            <li>Pull-ups - 3 set x max</li>
+                            <li>Barbell Row - 3 set x 8-10</li>
+                            <li>Bicep Curl - 3 set x 10-12</li>
+                        </ul>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h4>Hari 3: Legs</h4>
+                        <ul>
+                            <li>Squat - 4 set x 6-8</li>
+                            <li>Leg Press - 3 set x 8-10</li>
+                            <li>Romanian Deadlift - 3 set x 8-10</li>
+                            <li>Leg Curl - 3 set x 10-12</li>
+                        </ul>
+                    </div>
+
+                    <div class="exercise-card">
+                        <h4>Hari 4: Rest atau Active Recovery</h4>
+                        <ul>
+                            <li>Light cardio 20-30 menit</li>
+                            <li>Stretching 15-20 menit</li>
+                            <li>Foam rolling</li>
+                            <li>Focus on nutrition</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="exercise-card">
-                    <h4>Hari 2: Rest atau Active Recovery</h4>
-                    <ul>
-                        <li>Stretching ringan 15-20 menit</li>
-                        <li>Jalan santai 20-30 menit</li>
-                        <li>Fokus pada makan banyak</li>
-                    </ul>
-                    <p><em>Recovery sama pentingnya dengan latihan!</em></p>
-                </div>
-
-                <div class="exercise-card">
-                    <h4>Hari 3: Full Body B</h4>
-                    <ul>
-                        <li>Deadlift - 3 set x 5-6</li>
-                        <li>Pull-ups/Lat Pulldown - 3 set x 8-10</li>
-                        <li>Incline Dumbbell Press - 3 set x 8-10</li>
-                        <li>Leg Press - 3 set x 10-12</li>
-                        <li>Bicep Curl - 3 set x 10-12</li>
-                    </ul>
-                    <p><strong>Note:</strong> Mulai dengan berat ringan, fokus pada form</p>
-                </div>
-            </div>
-
-            <div class="tip-card" style="margin-top: 1.5rem;">
-                <h3><i class="fas fa-dumbbell"></i> Progressive Overload untuk Pemula</h3>
-                <p><span class="simple-term">Progressive Overload</span> = <strong>terus meningkatkan
-                        beban/intensitas</strong> untuk otot berkembang.</p>
-                <p><strong>Untuk underweight:</strong></p>
-                <ul>
-                    <li><strong>Mulai sangat ringan:</strong> Fokus pada teknik, bukan ego lifting</li>
-                    <li><strong>Tambah berat perlahan:</strong> +2.5kg setiap 1-2 minggu jika bisa</li>
-                    <li><strong>Compound exercises:</strong> Squat, deadlift, bench press, row, overhead press</li>
-                    <li><strong>Istirahat cukup:</strong> 2-3 menit antar set untuk recovery maksimal</li>
-                </ul>
-            </div>
-
-            <div class="tip-card" style="margin-top: 1.5rem;">
-                <h3><i class="fas fa-ban"></i> Cardio untuk Underweight</h3>
-                <p>Cardio tetap penting untuk kesehatan jantung, tapi jangan berlebihan.</p>
-                <ul>
-                    <li><strong>Jenis:</strong> LISS (Low Intensity Steady State) seperti jalan cepat</li>
-                    <li><strong>Durasi:</strong> 15-20 menit, 2-3x seminggu</li>
-                    <li><strong>Hindari:</strong> HIIT atau cardio berlebihan yang bakar banyak kalori</li>
-                    <li><strong>Waktu:</strong> Setelah strength training atau di hari terpisah</li>
-                </ul>
+                <p><em>Target: Naik 2-3kg otot di bulan ketiga</em></p>
             </div>
         </section>
 
-        <!-- Lifestyle & Mindset -->
+        <!-- Medical & Supplementation -->
         <section class="tip-section">
-            <h2><i class="fas fa-bed"></i> Gaya Hidup & Pola Pikir</h2>
+            <h2><i class="fas fa-stethoscope"></i> Pertimbangan Kesehatan & Suplementasi</h2>
 
-            <div class="tip-card">
-                <h3><i class="fas fa-moon"></i> Tidur & Recovery</h3>
-                <p>Otot tumbuh saat istirahat, bukan saat latihan!</p>
-                <ul>
-                    <li><strong>Tidur 8-9 jam:</strong> Wajib untuk recovery dan hormon pertumbuhan</li>
-                    <li><strong>Quality sleep:</strong> Kamar gelap, sejuk, bebas gadget sebelum tidur</li>
-                    <li><strong>Rest days:</strong> 3-4 hari istirahat per minggu</li>
-                    <li><strong>Stress management:</strong> Meditasi, journaling, atau hobi untuk mengurangi stress</li>
-                </ul>
-            </div>
+            <div class="weight-gain-grid">
+                <div class="weight-gain-card">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Kapan Harus ke Dokter?</h4>
+                    <ul>
+                        <li>BMI di bawah 17.5</li>
+                        <li>Berat turun tanpa sebab jelas</li>
+                        <li>Nafsu makan sangat rendah terus-menerus</li>
+                        <li>Sering merasa lelah berlebihan</li>
+                        <li>Ada gejala seperti sakit perut atau demam</li>
+                    </ul>
+                </div>
 
-            <div class="tip-card">
-                <h3><i class="fas fa-brain"></i> Mindset untuk Underweight</h3>
-                <ul>
-                    <li><strong>It's a marathon:</strong> Naik berat badan sehat butuh waktu (bulanan)</li>
-                    <li><strong>Jangan bandingkan:</strong> Setiap orang punya metabolisme berbeda</li>
-                    <li><strong>Focus on strength:</strong> Lebih baik fokus pada naik angkatan beban daripada hanya
-                        angka timbangan</li>
-                    <li><strong>Be patient:</strong> 0.25-0.5kg per minggu adalah progress yang bagus</li>
-                    <li><strong>Celebrate non-scale victories:</strong> Baju lebih pas, lebih kuat, lebih berenergi</li>
-                </ul>
-            </div>
-
-            <div class="tip-card">
-                <h3><i class="fas fa-users"></i> Tips Sosial & Sekolah</h3>
-                <ul>
-                    <li><strong>Bawa snack:</strong> Selalu siapkan snack tinggi kalori di tas sekolah</li>
-                    <li><strong>Makan dengan teman:</strong> Makan bersama bisa meningkatkan nafsu makan</li>
-                    <li><strong>Komunikasi ke keluarga:</strong> Minta dukungan untuk makanan lebih bergizi di rumah
-                    </li>
-                    <li><strong>School lunch:</strong> Tambah porsi atau bawa bekal ekstra</li>
-                    <li><strong>Find workout buddy:</strong> Lebih termotivasi latihan dengan teman</li>
-                </ul>
+                <div class="weight-gain-card">
+                    <h4><i class="fas fa-pills"></i> Suplementasi (Jika Diperlukan)</h4>
+                    <p><strong>Untuk underweight yang kesulitan makan cukup:</strong></p>
+                    <ul>
+                        <li><strong>Mass gainer:</strong> Hanya jika benar-benar sulit makan (pilih yang rendah gula)
+                        </li>
+                        <li><strong>Whey protein:</strong> Mudah dicerna, cepat terserap</li>
+                        <li><strong>Creatine monohydrate:</strong> Tingkatkan performa latihan (5g/hari)</li>
+                        <li><strong>Multivitamin:</strong> Pastikan dapat semua nutrisi penting</li>
+                        <li><strong>Omega-3:</strong> Untuk kesehatan jantung dan otak</li>
+                    </ul>
+                    <div class="calorie-dense-foods">
+                        <strong>Disclaimer:</strong> Konsultasi dengan dokter atau ahli gizi sebelum mulai suplemen.
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Progress & Goals -->
+        <!-- Progress & Motivation -->
         <section class="progress-tracker">
-            <h3><i class="fas fa-chart-line"></i> Target & Monitoring Progress</h3>
+            <h3><i class="fas fa-chart-line"></i> Progress Monitoring & Motivasi</h3>
+
             <div
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div>
@@ -591,16 +956,16 @@
                     <p>Naik 0.25-0.5kg per minggu</p>
                 </div>
                 <div>
+                    <h4>Target 3 Bulan</h4>
+                    <p>Naik 5-8kg total</p>
+                </div>
+                <div>
                     <h4>Pengukuran</h4>
-                    <p>Timbang 1x seminggu (pagi, setelah ke kamar mandi)</p>
+                    <p>Timbang 1x/minggu (pagi, setelah kamar mandi)</p>
                 </div>
                 <div>
                     <h4>Non-Scale Victory</h4>
-                    <p>Baju lebih pas, otot lebih terlihat</p>
-                </div>
-                <div>
-                    <h4>Timeline</h4>
-                    <p>3-6 bulan untuk berat ideal</p>
+                    <p>Baju lebih pas, lebih kuat angkat beban</p>
                 </div>
             </div>
 
@@ -623,71 +988,41 @@
             </div>
         </section>
 
-        <!-- Medical Considerations -->
+        <!-- Action Section -->
         <section class="tip-section">
-            <h2><i class="fas fa-stethoscope"></i> Pertimbangan Kesehatan</h2>
+            <h2><i class="fas fa-rocket"></i> Mulai Hari Ini!</h2>
 
-            <div class="weight-gain-grid">
-                <div class="weight-gain-card">
-                    <h4><i class="fas fa-exclamation-triangle"></i> Kapan Harus ke Dokter?</h4>
-                    <ul>
-                        <li>BMI di bawah 17.5</li>
-                        <li>Berat turun terus tanpa sebab jelas</li>
-                        <li>Nafsu makan sangat rendah terus-menerus</li>
-                        <li>Merasa lelah berlebihan</li>
-                        <li>Ada gejala lain seperti sakit perut atau demam</li>
-                    </ul>
-                </div>
-
-                <div class="weight-gain-card">
-                    <h4><i class="fas fa-heart"></i> Healthy Weight Gain vs Unhealthy</h4>
-                    <p><strong>Healthy:</strong></p>
-                    <ul>
-                        <li>Naik dengan makanan bergizi</li>
-                        <li>Kombinasi otot dan sedikit lemak</li>
-                        <li>Progress bertahap</li>
-                        <li>Dengan olahraga teratur</li>
-                    </ul>
-                    <p><strong>Unhealthy:</strong></p>
-                    <ul>
-                        <li>Hanya makan junk food</li>
-                        <li>Hanya naik lemak, tanpa otot</li>
-                        <li>Terlalu cepat (>1kg/minggu)</li>
-                        <li>Tanpa olahraga</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="tip-card" style="margin-top: 1.5rem;">
-                <h3><i class="fas fa-pills"></i> Suplementasi (Jika Diperlukan)</h3>
-                <p><strong>Untuk underweight yang kesulitan makan:</strong></p>
+            <div class="tip-card">
+                <h3><i class="fas fa-calendar-check"></i> Checklist Minggu Pertama</h3>
                 <ul>
-                    <li><strong>Mass gainer:</strong> Protein tinggi dengan karbohidrat (hanya jika benar-benar butuh)
-                    </li>
-                    <li><strong>Whey protein:</strong> Mudah dicerna, cepat terserap</li>
-                    <li><strong>Creatine monohydrate:</strong> Meningkatkan performa latihan (5g/hari)</li>
-                    <li><strong>Multivitamin:</strong> Pastikan dapat semua nutrisi penting</li>
-                    <li><strong>Omega-3:</strong> Untuk kesehatan jantung dan otak</li>
+                    <li>✅ Ukur berat badan dan catat</li>
+                    <li>✅ Belanja bahan smoothie tinggi kalori</li>
+                    <li>✅ Siapkan 6 wadah makan untuk meal prep</li>
+                    <li>✅ Download aplikasi tracking kalori</li>
+                    <li>✅ Cari dumbbell ringan atau resistance bands</li>
+                    <li>✅ Tentukan 3 hari untuk olahraga</li>
+                    <li>✅ Siapkan alarm untuk waktu makan</li>
                 </ul>
-                <div class="calorie-dense-foods">
-                    <strong>Disclaimer:</strong> Konsultasi dengan dokter atau ahli gizi sebelum mulai suplemen.
-                </div>
             </div>
 
-            <div
-                style="text-align: center; margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="../index.html" class="calculate-btn"
-                    style="display: inline-flex; width: auto; padding: 12px 30px;">
+            <div class="tip-card">
+                <h3><i class="fas fa-comments"></i> Mindset untuk Sukses</h3>
+                <ul>
+                    <li><strong>Patience is Key:</strong> Weight gain sehat butuh waktu (bulanan)</li>
+                    <li><strong>Focus on Strength:</strong> Lebih baik fokus pada naik angkatan beban daripada hanya
+                        angka timbangan</li>
+                    <li><strong>Self-Compassion:</strong> Jangan stres jika berat naik perlahan</li>
+                    <li><strong>Celebrate Small Wins:</strong> Rayakan setiap kenaikan angkatan beban</li>
+                    <li><strong>Quality over Quantity:</strong> Fokus pada makanan bergizi, bukan hanya kalori kosong
+                    </li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <a href="../index.html" class="btn-action btn-primary">
                     <i class="fas fa-calculator"></i> Hitung Ulang BMI
                 </a>
-                <button onclick="window.print()" class="calculate-btn"
-                    style="display: inline-flex; width: auto; padding: 12px 30px; background: #6c757d;">
-                    <i class="fas fa-print"></i> Print Panduan Ini
-                </button>
-                <a href="ideal.html" class="calculate-btn"
-                    style="display: inline-flex; width: auto; padding: 12px 30px; background: #2ecc71;">
-                    <i class="fas fa-arrow-right"></i> Tips untuk Berat Ideal
-                </a>
+
             </div>
         </section>
     </main>
@@ -716,24 +1051,91 @@
             }
         });
 
-        // Highlight simple terms
+        // Highlight simple terms with explanation
         document.querySelectorAll('.simple-term').forEach(term => {
             term.addEventListener('click', function () {
-                this.style.backgroundColor = '#3498db';
-                this.style.color = 'white';
+                this.classList.add('highlighted');
+
+                // Show tooltip with explanation
+                const termText = this.textContent;
+                let explanation = '';
+
+                switch (termText) {
+                    case 'Surplus Kalori':
+                        explanation = 'Makan lebih banyak kalori daripada yang tubuh bakar setiap hari. Cara sehat untuk naik berat badan.';
+                        break;
+                    case 'Surplus Kalori Ringan':
+                        explanation = 'Tambah 300-500 kalori/hari dari kebutuhan normal. Cukup untuk naik berat badan tanpa merasa terlalu kenyang.';
+                        break;
+                    case 'Target Protein Tinggi':
+                        explanation = 'Fokus pada makanan tinggi protein untuk membangun otot, bukan hanya menambah lemak.';
+                        break;
+                    case 'Progressive Overload Nutrition':
+                        explanation = 'Nutrisi khusus untuk mendukung peningkatan beban latihan secara bertahap.';
+                        break;
+                    default:
+                        explanation = 'Klik istilah untuk penjelasan lebih detail.';
+                }
+
+                // Create tooltip
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.innerHTML = `
+                    <div style="position: absolute; background: #2c3e50; color: white; padding: 10px; border-radius: 6px; font-size: 0.9rem; max-width: 250px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                        <strong>${termText}</strong><br>
+                        ${explanation}
+                    </div>
+                `;
+
+                // Position tooltip
+                const rect = this.getBoundingClientRect();
+                tooltip.style.position = 'fixed';
+                tooltip.style.left = (rect.left + window.scrollX) + 'px';
+                tooltip.style.top = (rect.top + window.scrollY - 100) + 'px';
+
+                document.body.appendChild(tooltip);
+
+                // Remove tooltip after 3 seconds
                 setTimeout(() => {
-                    this.style.backgroundColor = '#d1ecf1';
-                    this.style.color = 'inherit';
-                }, 1000);
+                    this.classList.remove('highlighted');
+                    tooltip.remove();
+                }, 3000);
             });
         });
 
-        // Print button functionality
-        document.querySelector('button[onclick="window.print()"]')?.addEventListener('click', function () {
-            window.print();
+        // Checkbox functionality for checklist
+        document.querySelectorAll('.tip-card ul li').forEach(item => {
+            if (item.textContent.includes('✅')) {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', function () {
+                    if (this.textContent.includes('✅')) {
+                        this.textContent = this.textContent.replace('✅', '☑️');
+                        this.style.opacity = '0.6';
+                        this.style.textDecoration = 'line-through';
+                    } else {
+                        this.textContent = this.textContent.replace('☑️', '✅');
+                        this.style.opacity = '1';
+                        this.style.textDecoration = 'none';
+                    }
+                });
+            }
         });
 
-        // Motivational messages for underweight
+        // Calorie calculator for underweight
+        function calculateCalories() {
+            const weight = 55; // example weight in kg
+            const activityLevel = 1.5; // moderately active
+            const maintenance = weight * 30;
+            const surplus = maintenance + 500;
+
+            console.log(`%cKebutuhan kalori untuk weight gain:`, 'color: #3498db');
+            console.log(`Berat: ${weight}kg`);
+            console.log(`Maintenance: ${maintenance} kalori/hari`);
+            console.log(`Untuk naik berat: ${surplus} kalori/hari (+500 surplus)`);
+            console.log(`Contoh tambahan: 1 smoothie (400 kalori) + 1 sdm selai kacang (100 kalori)`);
+        }
+
+        // Motivational message on load
         window.addEventListener('load', function () {
             const messages = [
                 "Setiap tubuh berbeda. Fokus pada menjadi versi terbaik dari diri Anda sendiri! 💙",
@@ -743,23 +1145,11 @@
             const randomMsg = messages[Math.floor(Math.random() * messages.length)];
             console.log(`%c${randomMsg}`, 'color: #3498db; font-size: 14px; font-weight: bold;');
 
-            // Calorie calculator
-            const calculateCalories = () => {
-                const weight = 60; // example weight in kg
-                const activityLevel = 1.5; // moderately active
-                const maintenance = weight * 30;
-                const surplus = maintenance + 500;
-
-                console.log(`%cPerkiraan kebutuhan kalori untuk ${weight}kg:`, 'color: #3498db');
-                console.log(`Maintenance: ${maintenance} kalori/hari`);
-                console.log(`Untuk naik berat: ${surplus} kalori/hari (+500 surplus)`);
-            };
-
             // Run calculator
             setTimeout(calculateCalories, 1000);
         });
 
-        // Track meal times
+        // Meal time reminder
         const mealTimes = [
             { time: "07:00", name: "Sarapan" },
             { time: "10:00", name: "Snack Pagi" },
@@ -771,7 +1161,6 @@
             { time: "22:00", name: "Snack Malam" }
         ];
 
-        // Function to check current meal time
         function checkMealTime() {
             const now = new Date();
             const currentTime = now.getHours() * 100 + now.getMinutes();
@@ -779,7 +1168,7 @@
             for (let i = 0; i < mealTimes.length; i++) {
                 const mealTime = parseInt(mealTimes[i].time.replace(':', ''));
                 if (currentTime >= mealTime - 30 && currentTime <= mealTime + 30) {
-                    console.log(`%c⏰ Waktunya ${mealTimes[i].name}!`, 'color: #e74c3c; font-size: 16px; font-weight: bold;');
+                    console.log(`%c⏰ Waktunya ${mealTimes[i].name}! Jangan lupa makan!`, 'color: #e74c3c; font-size: 16px; font-weight: bold;');
                     break;
                 }
             }
@@ -788,6 +1177,41 @@
         // Check meal time every hour
         setInterval(checkMealTime, 3600000);
         checkMealTime(); // Initial check
+
+        // Handle window resize for responsive adjustments
+        window.addEventListener('resize', function () {
+            if (window.innerWidth <= 384) {
+                // Adjust layout for very small screens
+                document.querySelectorAll('.tip-section').forEach(section => {
+                    section.style.margin = '0 -10px 1.5rem';
+                    section.style.width = 'calc(100% + 20px)';
+                });
+
+                // Adjust high calorie snacks grid
+                const snacksGrid = document.querySelector('.high-calorie-snacks');
+                if (snacksGrid) {
+                    snacksGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                }
+
+                // Adjust buttons
+                document.querySelectorAll('.btn-action').forEach(btn => {
+                    btn.style.width = '100%';
+                });
+            }
+        });
+
+        // Initial check for small screens
+        if (window.innerWidth <= 384) {
+            document.querySelectorAll('.tip-section').forEach(section => {
+                section.style.margin = '0 -10px 1.5rem';
+                section.style.width = 'calc(100% + 20px)';
+            });
+
+            const snacksGrid = document.querySelector('.high-calorie-snacks');
+            if (snacksGrid) {
+                snacksGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+            }
+        }
     </script>
 </body>
 
