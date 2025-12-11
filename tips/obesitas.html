@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips Kesehatan untuk Obesitas - BMI Calculator</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Tips Page Specific Styles */
+        .tips-header {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 3rem;
+        }
+
+        .tips-header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tips-header p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .tips-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tip-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #e74c3c;
+        }
+
+        .tip-section h2 {
+            color: #e74c3c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .tip-card h3 {
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .tip-card h3 i {
+            color: #e74c3c;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .exercise-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 2px solid #e9ecef;
+            transition: transform 0.3s ease;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            border-color: #e74c3c;
+        }
+
+        .exercise-card h4 {
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .exercise-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .exercise-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .exercise-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .meal-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .meal-time {
+            background: white;
+            border-radius: 10px;
+            padding: 1.2rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .meal-time h4 {
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .progress-tracker {
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .progress-tracker h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .tips-header {
+                padding: 3rem 0;
+            }
+
+            .tips-header h1 {
+                font-size: 2rem;
+            }
+
+            .back-button {
+                top: 1rem;
+                left: 1rem;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .tip-section {
+                padding: 1.5rem;
+            }
+
+            .exercise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .simple-term {
+            background: #e8f4fc;
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Tips Header -->
+    <header class="tips-header">
+        <button class="back-button" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+        <div class="container">
+            <h1><i class="fas fa-heartbeat"></i> Panduan Kesehatan untuk Obesitas</h1>
+            <p>Tips praktis dan realistis untuk memulai perjalanan hidup sehat Anda</p>
+        </div>
+    </header>
+
+    <!-- Tips Content -->
+    <main class="tips-content">
+        <!-- Introduction -->
+        <section class="tip-section">
+            <h2><i class="fas fa-info-circle"></i> Apa Itu Obesitas?</h2>
+            <p>Obesitas artinya tubuh menyimpan terlalu banyak lemak. Ini bisa terjadi karena:</p>
+            <ul>
+                <li>Makan lebih banyak kalori daripada yang tubuh butuhkan</li>
+                <li>Kurang bergerak dan olahraga</li>
+                <li>Pola tidur yang tidak teratur</li>
+                <li>Stres yang tinggi</li>
+            </ul>
+            <div class="warning-box">
+                <h3><i class="fas fa-exclamation-triangle"></i> Penting!</h3>
+                <p>Jangan coba-coba diet ekstrim atau olahraga berlebihan! Mulai dengan perubahan kecil yang bisa
+                    dipertahankan.</p>
+            </div>
+        </section>
+
+        <!-- Nutrition Section -->
+        <section class="tip-section">
+            <h2><i class="fas fa-utensils"></i> Pola Makan Sehat</h2>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-balance-scale"></i> Defisit Kalori - Apa Itu?</h3>
+                <p><span class="simple-term">Defisit Kalori</span> artinya Anda makan <strong>lebih sedikit
+                        kalori</strong> daripada yang tubuh bakar setiap hari. Ini cara aman turun berat badan.</p>
+                <p><strong>Cara sederhana:</strong> Kurangi porsi makan sedikit demi sedikit, jangan langsung dipotong
+                    banyak.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-ban"></i> Makanan yang Perlu Dikurangi</h3>
+                <ul>
+                    <li><strong>Minuman manis:</strong> Soda, boba, jus kemasan</li>
+                    <li><strong>Makanan cepat saji:</strong> Burger, fried chicken, pizza</li>
+                    <li><strong>Gorengan:</strong> Semua yang digoreng dengan banyak minyak</li>
+                    <li><strong>Snack kemasan:</strong> Chips, biskuit, coklat berlebihan</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-check-circle"></i> Makanan yang Baik Dikonsumsi</h3>
+                <ul>
+                    <li><strong>Protein:</strong> Ayam tanpa kulit, ikan, tahu, tempe, telur</li>
+                    <li><strong>Sayuran:</strong> Brokoli, bayam, wortel, kangkung (banyak serat)</li>
+                    <li><strong>Buah:</strong> Apel, pir, jeruk, pepaya (makan buah, bukan minum jus)</li>
+                    <li><strong>Karbohidrat baik:</strong> Nasi merah, roti gandum, oats</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Contoh Menu Sehari</h3>
+            <div class="meal-plan">
+                <div class="meal-time">
+                    <h4>Sarapan (07:00)</h4>
+                    <p>2 telur rebus + 1 mangkuk oats + 1 buah apel</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Snack Pagi (10:00)</h4>
+                    <p>1 buah pisang atau segenggam kacang almond</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Makan Siang (13:00)</h4>
+                    <p>1 piring nasi merah + ayam panggang + sayur bayam</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Snack Sore (16:00)</h4>
+                    <p>Greek yogurt atau 1 buah jeruk</p>
+                </div>
+                <div class="meal-time">
+                    <h4>Makan Malam (19:00)</h4>
+                    <p>Ikan bakar + tumis brokoli + sedikit nasi merah</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise Section -->
+        <section class="tip-section">
+            <h2><i class="fas fa-dumbbell"></i> Program Olahraga</h2>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-running"></i> Mulai dengan Cardio Ringan</h3>
+                <p><span class="simple-term">Cardio</span> = olahraga untuk kesehatan jantung dan pembakaran kalori.</p>
+                <p><strong>Untuk pemula:</strong></p>
+                <ul>
+                    <li>Jalan cepat 30 menit, 3x seminggu</li>
+                    <li>Naik turun tangga (mulai 10 menit)</li>
+                    <li>Berenang 20-30 menit, 2x seminggu</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-weight-hanging"></i> Resistance Training (Latihan Kekuatan)</h3>
+                <p><span class="simple-term">Resistance Training</span> = Latihan angkat beban/berat untuk bangun otot.
+                </p>
+                <p><strong>Kenapa penting?</strong> Otot bakar kalori lebih banyak, bahkan saat istirahat!</p>
+            </div>
+
+            <h3>Program Latihan 3 Hari/Minggu</h3>
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h4>Hari 1: Full Body</h4>
+                    <ul>
+                        <li>Squat (tanpa beban) - 3 set x 10-15 repetisi</li>
+                        <li>Push-up (dari lutut) - 3 set x 8-12 repetisi</li>
+                        <li>Dumbbell Row - 3 set x 10-12 repetisi</li>
+                        <li>Plank - 3 set x 30 detik</li>
+                    </ul>
+                    <p><strong>Cardio:</strong> Jalan cepat 20 menit</p>
+                </div>
+
+                <div class="exercise-card">
+                    <h4>Hari 2: Istirahat Aktif</h4>
+                    <ul>
+                        <li>Jalan santai 30 menit</li>
+                        <li>Stretching ringan 10 menit</li>
+                        <li>Latihan pernapasan 5 menit</li>
+                    </ul>
+                    <p><em>Tubuh butuh waktu untuk recovery!</em></p>
+                </div>
+
+                <div class="exercise-card">
+                    <h4>Hari 3: Full Body</h4>
+                    <ul>
+                        <li>Lunges - 3 set x 10-12 repetisi (masing-masing kaki)</li>
+                        <li>Dumbbell Press - 3 set x 10-12 repetisi</li>
+                        <li>Lat Pulldown - 3 set x 10-12 repetisi</li>
+                        <li>Leg Raises - 3 set x 15-20 repetisi</li>
+                    </ul>
+                    <p><strong>Cardio:</strong> Sepeda statis 20 menit</p>
+                </div>
+            </div>
+
+            <div class="tip-card" style="margin-top: 1.5rem;">
+                <h3><i class="fas fa-dumbbell"></i> Weight Lifting untuk Pemula</h3>
+                <p><strong>Mulai dengan berat ringan!</strong> Fokus pada teknik yang benar.</p>
+                <ul>
+                    <li><strong>Dumbbells:</strong> Mulai 2-5 kg untuk wanita, 5-10 kg untuk pria</li>
+                    <li><strong>Barbell:</strong> Mulai dengan barbel kosong (20kg) dulu</li>
+                    <li><strong>Repetisi:</strong> 8-12 repetisi per set sudah cukup</li>
+                    <li><strong>Set:</strong> 3-4 set per gerakan</li>
+                    <li><strong>Istirahat:</strong> 60-90 detik antara set</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Lifestyle Section -->
+        <section class="tip-section">
+            <h2><i class="fas fa-bed"></i> Pola Hidup Sehat</h2>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-moon"></i> Pola Tidur</h3>
+                <ul>
+                    <li><strong>Tidur 7-9 jam</strong> setiap malam</li>
+                    <li>Matikan HP 1 jam sebelum tidur</li>
+                    <li>Atur kamar gelap dan sejuk</li>
+                    <li>Hindari makan berat 3 jam sebelum tidur</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-tint"></i> Minum Air Putih</h3>
+                <ul>
+                    <li>Minum <strong>2-3 liter</strong> air per hari</li>
+                    <li>Bawa botol minum ke mana saja</li>
+                    <li>Minum 1 gelas air sebelum makan</li>
+                    <li>Kurangi minuman manis, ganti dengan air putih atau teh tawar</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-brain"></i> Mental Health</h3>
+                <ul>
+                    <li><strong>Jangan terlalu keras pada diri sendiri</strong> - progress butuh waktu</li>
+                    <li>Rayakan kemenangan kecil (misal: berhasil olahraga hari ini)</li>
+                    <li>Cari teman untuk olahraga bersama</li>
+                    <li>Kalau stress, coba meditasi 5 menit atau jalan-jalan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Progress Tracker -->
+        <section class="progress-tracker">
+            <h3><i class="fas fa-chart-line"></i> Tips Sukses Jangka Panjang</h3>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div>
+                    <h4>Target Realistis</h4>
+                    <p>Turun 0.5-1 kg per minggu itu sehat</p>
+                </div>
+                <div>
+                    <h4>Jangan Timbang Setiap Hari</h4>
+                    <p>Timbang seminggu sekali di pagi hari</p>
+                </div>
+                <div>
+                    <h4>Foto Progress</h4>
+                    <p>Ambil foto setiap bulan untuk lihat perubahan</p>
+                </div>
+                <div>
+                    <h4>Jika Gagal...</h4>
+                    <p>Lanjut besok, jangan berhenti total!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Important Notes -->
+        <section class="tip-section">
+            <h2><i class="fas fa-stethoscope"></i> Kapan Harus ke Dokter?</h2>
+            <div class="warning-box">
+                <h3><i class="fas fa-exclamation-circle"></i> Segera konsultasi dokter jika:</h3>
+                <ul>
+                    <li>BMI di atas 35</li>
+                    <li>Punya penyakit seperti diabetes atau tekanan darah tinggi</li>
+                    <li>Sakit sendi atau sulit bergerak</li>
+                    <li>Pernah gagal diet berkali-kali</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Dokter atau ahli gizi bisa bikin program khusus untuk
+                        Anda!</strong></p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="../index.html" class="calculate-btn"
+                    style="display: inline-flex; width: auto; padding: 12px 30px;">
+                    <i class="fas fa-calculator"></i> Hitung Ulang BMI
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back button functionality
+        document.querySelector('.back-button').addEventListener('click', function () {
+            if (document.referrer && document.referrer.includes(window.location.hostname)) {
+                window.history.back();
+            } else {
+                window.location.href = '../index.html';
+            }
+        });
+
+        // Highlight simple terms
+        document.querySelectorAll('.simple-term').forEach(term => {
+            term.addEventListener('click', function () {
+                this.style.backgroundColor = '#3498db';
+                this.style.color = 'white';
+                setTimeout(() => {
+                    this.style.backgroundColor = '#e8f4fc';
+                    this.style.color = 'inherit';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>
