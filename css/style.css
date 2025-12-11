@@ -686,3 +686,57 @@ body {
         padding: 6px 15px;
     }
 }
+
+/* Perbaikan Input Styles */
+.input-with-unit input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+    background: #f8f9fa;
+    -moz-appearance: textfield;
+    /* Hapus spinner di Firefox */
+}
+
+.input-with-unit input::-webkit-outer-spin-button,
+.input-with-unit input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-with-unit input:hover {
+    border-color: #b0b0b0;
+}
+
+.input-with-unit input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* Error state */
+.input-with-unit input.error {
+    border-color: var(--danger);
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.input-with-unit input.error:focus {
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* Validation feedback */
+.validation-message {
+    font-size: 0.85rem;
+    color: var(--danger);
+    margin-top: 5px;
+    padding-left: 5px;
+    display: none;
+}
+
+.input-with-unit input.error+.validation-message {
+    display: block;
+}

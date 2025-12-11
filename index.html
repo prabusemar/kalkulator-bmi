@@ -33,7 +33,7 @@
                                     required>
                                 <span class="unit">kg</span>
                             </div>
-                            <div class="input-hint">Masukkan berat badan dalam kilogram</div>
+                            <div class="input-hint">Masukkan berat badan dalam kilogram (20-200 kg)</div>
                         </div>
 
                         <div class="form-group">
@@ -44,7 +44,7 @@
                                 <input type="number" id="height" placeholder="Contoh: 170" min="100" max="250" required>
                                 <span class="unit">cm</span>
                             </div>
-                            <div class="input-hint">Masukkan tinggi badan dalam centimeter</div>
+                            <div class="input-hint">Masukkan tinggi badan dalam centimeter (100-250 cm)</div>
                         </div>
 
                         <div class="form-group">
@@ -149,18 +149,42 @@
         document.getElementById('bmiForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value) / 100; // Convert to meters
-            const age = parseInt(document.getElementById('age').value);
+            const weightInput = document.getElementById('weight');
+            const heightInput = document.getElementById('height');
+            const ageInput = document.getElementById('age');
+
+            // Ambil nilai dan konversi ke number
+            const weight = parseFloat(weightInput.value);
+            const height = parseFloat(heightInput.value);
+            const age = parseInt(ageInput.value);
             const gender = document.querySelector('input[name="gender"]:checked').value;
 
-            if (!weight || !height || weight <= 0 || height <= 0) {
-                alert('Mohon masukkan data yang valid');
+            console.log('Input values:', { weight, height, age }); // Debug log
+
+            // Validasi input
+            if (!weight || weight <= 0) {
+                alert('Mohon masukkan berat badan yang valid (lebih dari 0 kg)');
+                weightInput.focus();
                 return;
             }
 
+            if (!height || height <= 0) {
+                alert('Mohon masukkan tinggi badan yang valid (lebih dari 0 cm)');
+                heightInput.focus();
+                return;
+            }
+
+            if (!age || age < 10 || age > 19) {
+                alert('Mohon masukkan usia antara 10-19 tahun');
+                ageInput.focus();
+                return;
+            }
+
+            // Konversi tinggi ke meter
+            const heightInMeters = height / 100;
+
             // Calculate BMI
-            const bmi = weight / (height * height);
+            const bmi = weight / (heightInMeters * heightInMeters);
 
             // Determine category
             let category, categoryClass, advice, color;
@@ -212,7 +236,7 @@
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">Tinggi</span>
-                            <span class="detail-value">${(height * 100)} cm</span>
+                            <span class="detail-value">${height} cm</span>
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">Usia</span>
@@ -276,15 +300,35 @@
             `;
         }
 
-        // Input validation
+        // Input validation dengan event listener yang tepat
         document.querySelectorAll('input[type="number"]').forEach(input => {
-            input.addEventListener('input', function () {
-                const min = parseInt(this.min);
-                const max = parseInt(this.max);
-                const value = parseInt(this.value);
+            // Hapus event listener lama jika ada
+            input.addEventListener('blur', function () {
+                const min = parseFloat(this.min);
+                const max = parseFloat(this.max);
+                let value = parseFloat(this.value);
 
-                if (value < min) this.value = min;
-                if (value > max) this.value = max;
+                // Validasi hanya jika ada nilai
+                if (!isNaN(value)) {
+                    if (value < min) {
+                        this.value = min;
+                        alert(`Nilai minimum untuk ${this.id} adalah ${min}`);
+                    } else if (value > max) {
+                        this.value = max;
+                        alert(`Nilai maksimum untuk ${this.id} adalah ${max}`);
+                    }
+                }
+            });
+
+            // Tambah event untuk real-time validation
+            input.addEventListener('input', function () {
+                // Hapus spasi dan karakter non-numeric
+                this.value = this.value.replace(/[^0-9.]/g, '');
+
+                // Hapus titik desimal berlebihan
+                if ((this.value.match(/\./g) || []).length > 1) {
+                    this.value = this.value.substring(0, this.value.lastIndexOf('.'));
+                }
             });
         });
     </script>
