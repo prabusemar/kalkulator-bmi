@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator BMI - Health Check for Teens</title>
+    <title>Kalkulator BMI - Cek Berat Badan Ideal</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
@@ -17,8 +17,8 @@
     <section class="calculator-section">
         <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-calculator"></i> Kalkulator BMI Remaja</h2>
-                <p>Hitung Body Mass Index (BMI) dan dapatkan tips kesehatan khusus untuk remaja</p>
+                <h2><i class="fas fa-calculator"></i> Kalkulator BMI</h2>
+                <p>Hitung Body Mass Index (BMI) untuk mengetahui status berat badan Anda</p>
             </div>
 
             <div class="calculator-card">
@@ -26,25 +26,28 @@
                     <form id="bmiForm">
                         <div class="form-group">
                             <label for="weight">
-                                <i class="fas fa-weight"></i> Berat Badan (kg)
+                                <i class="fas fa-weight"></i> Berat Badan
                             </label>
                             <div class="input-with-unit">
-                                <input type="number" id="weight" placeholder="Contoh: 65" min="20" max="200" step="0.1"
+                                <input type="number" id="weight" placeholder="Contoh: 65" min="1" max="300" step="0.1"
                                     required>
                                 <span class="unit">kg</span>
                             </div>
-                            <div class="input-hint">Masukkan berat badan dalam kilogram (20-200 kg)</div>
+                            <div class="input-hint">Masukkan berat badan dalam kilogram</div>
+                            <div class="validation-message" id="weightError"></div>
                         </div>
 
                         <div class="form-group">
                             <label for="height">
-                                <i class="fas fa-ruler-vertical"></i> Tinggi Badan (cm)
+                                <i class="fas fa-ruler-vertical"></i> Tinggi Badan
                             </label>
                             <div class="input-with-unit">
-                                <input type="number" id="height" placeholder="Contoh: 170" min="100" max="250" required>
+                                <input type="number" id="height" placeholder="Contoh: 170" min="50" max="300" step="0.1"
+                                    required>
                                 <span class="unit">cm</span>
                             </div>
-                            <div class="input-hint">Masukkan tinggi badan dalam centimeter (100-250 cm)</div>
+                            <div class="input-hint">Masukkan tinggi badan dalam centimeter</div>
+                            <div class="validation-message" id="heightError"></div>
                         </div>
 
                         <div class="form-group">
@@ -52,10 +55,11 @@
                                 <i class="fas fa-birthday-cake"></i> Usia
                             </label>
                             <div class="input-with-unit">
-                                <input type="number" id="age" placeholder="Contoh: 17" min="10" max="19" required>
+                                <input type="number" id="age" placeholder="Contoh: 25" min="1" max="120" required>
                                 <span class="unit">tahun</span>
                             </div>
-                            <div class="input-hint">Usia 10-19 tahun (remaja)</div>
+                            <div class="input-hint">Masukkan usia Anda</div>
+                            <div class="validation-message" id="ageError"></div>
                         </div>
 
                         <div class="form-group">
@@ -92,12 +96,12 @@
                             <i class="fas fa-heartbeat"></i>
                         </div>
                         <h3>Hasil BMI Akan Muncul Di Sini</h3>
-                        <p>Setelah menghitung, kamu akan melihat:</p>
+                        <p>Setelah menghitung, Anda akan melihat:</p>
                         <ul class="placeholder-features">
                             <li><i class="fas fa-check-circle"></i> Nilai BMI dan Kategori</li>
                             <li><i class="fas fa-check-circle"></i> Status kesehatan</li>
-                            <li><i class="fas fa-check-circle"></i> Tips personal</li>
-                            <li><i class="fas fa-check-circle"></i> Rekomendasi olahraga</li>
+                            <li><i class="fas fa-check-circle"></i> Rekomendasi kesehatan</li>
+                            <li><i class="fas fa-check-circle"></i> Tips personal untuk Anda</li>
                         </ul>
                     </div>
                 </div>
@@ -105,7 +109,7 @@
 
             <!-- BMI Categories -->
             <div class="categories-section">
-                <h3 class="categories-title"><i class="fas fa-list"></i> Kategori BMI Remaja</h3>
+                <h3 class="categories-title"><i class="fas fa-list"></i> Kategori BMI</h3>
                 <div class="categories-grid">
                     <div class="category-card underweight">
                         <div class="category-icon">
@@ -113,14 +117,14 @@
                         </div>
                         <h4>Underweight</h4>
                         <p>BMI &lt; 18.5</p>
-                        <div class="category-tip">Perlu menambah berat badan</div>
+                        <div class="category-tip">Kekurangan berat badan</div>
                     </div>
                     <div class="category-card normal">
                         <div class="category-icon">
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <h4>Normal</h4>
-                        <p>BMI 18.5 - 22.9</p>
+                        <p>BMI 18.5 - 24.9</p>
                         <div class="category-tip">Berat badan ideal</div>
                     </div>
                     <div class="category-card overweight">
@@ -128,16 +132,16 @@
                             <i class="fas fa-exclamation-triangle"></i>
                         </div>
                         <h4>Overweight</h4>
-                        <p>BMI 23 - 24.9</p>
-                        <div class="category-tip">Perlu perhatian</div>
+                        <p>BMI 25 - 29.9</p>
+                        <div class="category-tip">Kelebihan berat badan</div>
                     </div>
                     <div class="category-card obese">
                         <div class="category-icon">
                             <i class="fas fa-times-circle"></i>
                         </div>
                         <h4>Obesitas</h4>
-                        <p>BMI ≥ 25</p>
-                        <div class="category-tip">Perlu penanganan</div>
+                        <p>BMI ≥ 30</p>
+                        <div class="category-tip">Obesitas perlu penanganan</div>
                     </div>
                 </div>
             </div>
@@ -145,70 +149,101 @@
     </section>
 
     <script>
-        // Form submission
+        // Form submission dengan validasi yang lebih baik
         document.getElementById('bmiForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
+            // Reset error messages
+            clearErrors();
+
+            // Get input elements
             const weightInput = document.getElementById('weight');
             const heightInput = document.getElementById('height');
             const ageInput = document.getElementById('age');
 
-            // Ambil nilai dan konversi ke number
-            const weight = parseFloat(weightInput.value);
-            const height = parseFloat(heightInput.value);
+            // Get values
+            const weight = parseFloat(weightInput.value.replace(',', '.'));
+            const height = parseFloat(heightInput.value.replace(',', '.'));
             const age = parseInt(ageInput.value);
             const gender = document.querySelector('input[name="gender"]:checked').value;
 
-            console.log('Input values:', { weight, height, age }); // Debug log
+            // Validate inputs
+            let isValid = true;
 
-            // Validasi input
-            if (!weight || weight <= 0) {
-                alert('Mohon masukkan berat badan yang valid (lebih dari 0 kg)');
-                weightInput.focus();
+            // Validate weight
+            if (!weight || isNaN(weight) || weight <= 0) {
+                showError('weightError', 'Masukkan berat badan yang valid (lebih dari 0 kg)');
+                weightInput.classList.add('error');
+                isValid = false;
+            } else if (weight > 300) {
+                showError('weightError', 'Berat badan maksimal 300 kg');
+                weightInput.classList.add('error');
+                isValid = false;
+            }
+
+            // Validate height
+            if (!height || isNaN(height) || height <= 0) {
+                showError('heightError', 'Masukkan tinggi badan yang valid (lebih dari 0 cm)');
+                heightInput.classList.add('error');
+                isValid = false;
+            } else if (height > 300) {
+                showError('heightError', 'Tinggi badan maksimal 300 cm');
+                heightInput.classList.add('error');
+                isValid = false;
+            } else if (height < 50) {
+                showError('heightError', 'Tinggi badan minimal 50 cm');
+                heightInput.classList.add('error');
+                isValid = false;
+            }
+
+            // Validate age
+            if (!age || isNaN(age) || age <= 0) {
+                showError('ageError', 'Masukkan usia yang valid');
+                ageInput.classList.add('error');
+                isValid = false;
+            } else if (age > 120) {
+                showError('ageError', 'Usia maksimal 120 tahun');
+                ageInput.classList.add('error');
+                isValid = false;
+            }
+
+            if (!isValid) {
                 return;
             }
 
-            if (!height || height <= 0) {
-                alert('Mohon masukkan tinggi badan yang valid (lebih dari 0 cm)');
-                heightInput.focus();
-                return;
-            }
-
-            if (!age || age < 10 || age > 19) {
-                alert('Mohon masukkan usia antara 10-19 tahun');
-                ageInput.focus();
-                return;
-            }
-
-            // Konversi tinggi ke meter
+            // Convert height to meters
             const heightInMeters = height / 100;
 
             // Calculate BMI
             const bmi = weight / (heightInMeters * heightInMeters);
 
-            // Determine category
-            let category, categoryClass, advice, color;
+            // Determine category based on standard BMI categories
+            let category, categoryClass, advice, color, bmiRange;
 
             if (bmi < 18.5) {
                 category = "Underweight";
                 categoryClass = "underweight";
-                advice = "Perlu meningkatkan berat badan dengan pola makan sehat";
+                advice = "Anda memiliki berat badan kurang. Disarankan untuk meningkatkan asupan kalori dengan makanan bergizi.";
                 color = "#3498db";
-            } else if (bmi >= 18.5 && bmi < 23) {
+                bmiRange = "Kurang dari 18.5";
+            } else if (bmi >= 18.5 && bmi < 25) {
                 category = "Normal";
                 categoryClass = "normal";
-                advice = "Berat badan ideal! Pertahankan dengan pola hidup sehat";
+                advice = "Selamat! Berat badan Anda ideal. Pertahankan pola makan sehat dan aktivitas fisik rutin.";
                 color = "#2ecc71";
-            } else if (bmi >= 23 && bmi < 25) {
+                bmiRange = "18.5 - 24.9";
+            } else if (bmi >= 25 && bmi < 30) {
                 category = "Overweight";
                 categoryClass = "overweight";
-                advice = "Perlu memperhatikan pola makan dan aktivitas fisik";
+                advice = "Anda mengalami kelebihan berat badan. Disarankan untuk mengurangi asupan kalori dan meningkatkan aktivitas fisik.";
                 color = "#f39c12";
+                bmiRange = "25 - 29.9";
             } else {
                 category = "Obesitas";
                 categoryClass = "obese";
-                advice = "Disarankan konsultasi dengan ahli gizi atau dokter";
+                advice = "Anda mengalami obesitas. Disarankan untuk berkonsultasi dengan dokter atau ahli gizi untuk program penurunan berat badan yang aman.";
                 color = "#e74c3c";
+                bmiRange = "30 atau lebih";
             }
 
             // Display result
@@ -219,24 +254,28 @@
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="result-title">
-                            <h3>Hasil BMI Kamu</h3>
+                            <h3>Hasil BMI Anda</h3>
                             <p>${age} tahun • ${gender === 'male' ? 'Laki-laki' : 'Perempuan'}</p>
                         </div>
                     </div>
                     
                     <div class="bmi-score">
                         <div class="bmi-number">${bmi.toFixed(1)}</div>
-                        <div class="bmi-category ${categoryClass}">${category}</div>
+                        <div class="bmi-range">Rentang normal: ${bmiRange}</div>
+                        <div class="bmi-category ${categoryClass}">
+                            <i class="fas fa-${categoryClass === 'normal' ? 'check' : categoryClass === 'underweight' ? 'arrow-down' : categoryClass === 'overweight' ? 'exclamation-triangle' : 'times-circle'}"></i>
+                            ${category}
+                        </div>
                     </div>
                     
                     <div class="bmi-details">
                         <div class="detail-item">
-                            <span class="detail-label">Berat</span>
-                            <span class="detail-value">${weight} kg</span>
+                            <span class="detail-label">Berat Badan</span>
+                            <span class="detail-value">${weight.toFixed(1)} kg</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Tinggi</span>
-                            <span class="detail-value">${height} cm</span>
+                            <span class="detail-label">Tinggi Badan</span>
+                            <span class="detail-value">${height.toFixed(1)} cm</span>
                         </div>
                         <div class="detail-item">
                             <span class="detail-label">Usia</span>
@@ -247,10 +286,11 @@
                     <div class="advice-box">
                         <h4><i class="fas fa-lightbulb"></i> Rekomendasi</h4>
                         <p>${advice}</p>
+                        ${age < 18 ? '<p class="teen-note"><i class="fas fa-graduation-cap"></i> <strong>Tips untuk remaja:</strong> Fokus pada pola makan bergizi dan aktivitas fisik yang sesuai usia.</p>' : ''}
                     </div>
                     
                     <div class="result-actions">
-                        <button class="btn-tips" onclick="location.href='tips/${categoryClass}.html'">
+                        <button class="btn-tips" onclick="showTips('${categoryClass}')">
                             <i class="fas fa-book"></i> Lihat Tips Lengkap
                         </button>
                         <button class="btn-reset" onclick="resetCalculator()">
@@ -260,16 +300,23 @@
                     
                     <div class="bmi-bar">
                         <div class="bar-labels">
-                            <span>Underweight</span>
+                            <span>Kurang</span>
                             <span>Normal</span>
-                            <span>Overweight</span>
+                            <span>Lebih</span>
                             <span>Obesitas</span>
                         </div>
                         <div class="bar-container">
                             <div class="bar-fill" style="width: ${Math.min((bmi / 40) * 100, 100)}%; background: ${color};"></div>
                             <div class="bar-marker" style="left: ${Math.min((bmi / 40) * 100, 100)}%;">
-                                <div class="marker-dot"></div>
+                                <div class="marker-dot" style="border-color: ${color}"></div>
                             </div>
+                        </div>
+                        <div class="bar-scale">
+                            <span>0</span>
+                            <span>10</span>
+                            <span>20</span>
+                            <span>30</span>
+                            <span>40</span>
                         </div>
                     </div>
                 </div>
@@ -277,57 +324,152 @@
 
             document.getElementById('resultSection').innerHTML = resultHTML;
 
-            // Scroll to result
-            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+            // Scroll to result smoothly
+            document.getElementById('resultSection').scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
         });
+
+        // Helper functions
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.validation-message').forEach(el => {
+                el.textContent = '';
+                el.style.display = 'none';
+            });
+            document.querySelectorAll('input').forEach(input => {
+                input.classList.remove('error');
+            });
+        }
+
+        function showTips(category) {
+            // Ini akan diimplementasikan nanti di file hasil.html
+            alert(`Tips untuk kategori ${category} akan tersedia di halaman berikutnya.`);
+            // Untuk sementara kita buat placeholder
+            // location.href = `tips/${category}.html`;
+        }
 
         function resetCalculator() {
             document.getElementById('bmiForm').reset();
+            clearErrors();
             document.getElementById('resultSection').innerHTML = `
                 <div class="result-placeholder">
                     <div class="placeholder-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <h3>Hasil BMI Akan Muncul Di Sini</h3>
-                    <p>Setelah menghitung, kamu akan melihat:</p>
+                    <p>Setelah menghitung, Anda akan melihat:</p>
                     <ul class="placeholder-features">
                         <li><i class="fas fa-check-circle"></i> Nilai BMI dan Kategori</li>
                         <li><i class="fas fa-check-circle"></i> Status kesehatan</li>
-                        <li><i class="fas fa-check-circle"></i> Tips personal</li>
-                        <li><i class="fas fa-check-circle"></i> Rekomendasi olahraga</li>
+                        <li><i class="fas fa-check-circle"></i> Rekomendasi kesehatan</li>
+                        <li><i class="fas fa-check-circle"></i> Tips personal untuk Anda</li>
                     </ul>
                 </div>
             `;
         }
 
-        // Input validation dengan event listener yang tepat
+        // Input validation dengan user experience yang lebih baik
         document.querySelectorAll('input[type="number"]').forEach(input => {
-            // Hapus event listener lama jika ada
+            // Clean input
+            input.addEventListener('input', function () {
+                // Allow numbers and one decimal point
+                this.value = this.value.replace(/[^0-9.]/g, '');
+
+                // Remove extra decimal points
+                const parts = this.value.split('.');
+                if (parts.length > 2) {
+                    this.value = parts[0] + '.' + parts.slice(1).join('');
+                }
+
+                // Remove error state when user starts typing
+                this.classList.remove('error');
+                const errorId = this.id + 'Error';
+                const errorElement = document.getElementById(errorId);
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            });
+
+            // Validate on blur with better UX
             input.addEventListener('blur', function () {
+                const value = parseFloat(this.value.replace(',', '.'));
                 const min = parseFloat(this.min);
                 const max = parseFloat(this.max);
-                let value = parseFloat(this.value);
 
-                // Validasi hanya jika ada nilai
-                if (!isNaN(value)) {
-                    if (value < min) {
-                        this.value = min;
-                        alert(`Nilai minimum untuk ${this.id} adalah ${min}`);
-                    } else if (value > max) {
-                        this.value = max;
-                        alert(`Nilai maksimum untuk ${this.id} adalah ${max}`);
+                if (this.value.trim() === '') return;
+
+                if (isNaN(value)) {
+                    this.classList.add('error');
+                    showError(this.id + 'Error', 'Masukkan angka yang valid');
+                    return;
+                }
+
+                // For weight: 1-300 kg
+                if (this.id === 'weight') {
+                    if (value < 1) {
+                        this.value = 1;
+                        showError(this.id + 'Error', 'Berat badan minimal 1 kg');
+                        this.classList.add('error');
+                    } else if (value > 300) {
+                        this.value = 300;
+                        showError(this.id + 'Error', 'Berat badan maksimal 300 kg');
+                        this.classList.add('error');
+                    }
+                }
+
+                // For height: 50-300 cm
+                if (this.id === 'height') {
+                    if (value < 50) {
+                        this.value = 50;
+                        showError(this.id + 'Error', 'Tinggi badan minimal 50 cm');
+                        this.classList.add('error');
+                    } else if (value > 300) {
+                        this.value = 300;
+                        showError(this.id + 'Error', 'Tinggi badan maksimal 300 cm');
+                        this.classList.add('error');
+                    }
+                }
+
+                // For age: 1-120 years
+                if (this.id === 'age') {
+                    if (value < 1) {
+                        this.value = 1;
+                        showError(this.id + 'Error', 'Usia minimal 1 tahun');
+                        this.classList.add('error');
+                    } else if (value > 120) {
+                        this.value = 120;
+                        showError(this.id + 'Error', 'Usia maksimal 120 tahun');
+                        this.classList.add('error');
                     }
                 }
             });
 
-            // Tambah event untuk real-time validation
-            input.addEventListener('input', function () {
-                // Hapus spasi dan karakter non-numeric
-                this.value = this.value.replace(/[^0-9.]/g, '');
+            // Allow keyboard navigation
+            input.addEventListener('keydown', function (e) {
+                // Allow: backspace, delete, tab, escape, enter, decimal point
+                if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !== -1 ||
+                    // Allow: Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
+                    (e.keyCode === 65 && e.ctrlKey === true) ||
+                    (e.keyCode === 67 && e.ctrlKey === true) ||
+                    (e.keyCode === 86 && e.ctrlKey === true) ||
+                    (e.keyCode === 88 && e.ctrlKey === true) ||
+                    // Allow: home, end, left, right
+                    (e.keyCode >= 35 && e.keyCode <= 39)) {
+                    return;
+                }
 
-                // Hapus titik desimal berlebihan
-                if ((this.value.match(/\./g) || []).length > 1) {
-                    this.value = this.value.substring(0, this.value.lastIndexOf('.'));
+                // Ensure that it is a number and stop the keypress if not
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
                 }
             });
         });
