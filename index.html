@@ -13,65 +13,12 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-heartbeat"></i>
-                <span>TeenHealth</span>
-            </div>
-            <div class="nav-links">
-                <a href="index.html" class="active"><i class="fas fa-calculator"></i> Kalkulator</a>
-                <a href="tips/underweight.html"><i class="fas fa-lightbulb"></i> Tips</a>
-                <a href="#about"><i class="fas fa-info-circle"></i> Tentang</a>
-            </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text">Cek Kesehatanmu</span><br>
-                    Yuk Hitung BMI Kamu!
-                </h1>
-                <p class="hero-subtitle">
-                    BMI (Body Mass Index) adalah indikator sederhana untuk mengevaluasi berat badan idealmu.
-                    Dapatkan tips khusus untuk remaja SMA!
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <i class="fas fa-user-graduate"></i>
-                        <span>Khusus Remaja</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-dumbbell"></i>
-                        <span>Tips Olahraga</span>
-                    </div>
-                    <div class="stat-item">
-                        <i class="fas fa-utensils"></i>
-                        <span>Pola Makan</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="floating-shape shape-1"></div>
-                <div class="floating-shape shape-2"></div>
-                <div class="floating-shape shape-3"></div>
-            </div>
-        </div>
-    </section>
-
     <!-- Calculator Section -->
     <section class="calculator-section">
         <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-calculator"></i> Kalkulator BMI</h2>
-                <p>Masukkan data berat dan tinggi badanmu untuk menghitung BMI</p>
+                <h2><i class="fas fa-calculator"></i> Kalkulator BMI Remaja</h2>
+                <p>Hitung Body Mass Index (BMI) dan dapatkan tips kesehatan khusus untuk remaja</p>
             </div>
 
             <div class="calculator-card">
@@ -158,15 +105,15 @@
 
             <!-- BMI Categories -->
             <div class="categories-section">
-                <h3><i class="fas fa-list"></i> Kategori BMI Remaja</h3>
+                <h3 class="categories-title"><i class="fas fa-list"></i> Kategori BMI Remaja</h3>
                 <div class="categories-grid">
                     <div class="category-card underweight">
                         <div class="category-icon">
                             <i class="fas fa-arrow-down"></i>
                         </div>
                         <h4>Underweight</h4>
-                        <p>BMI < 18.5</p>
-                                <div class="category-tip">Perlu menambah berat badan</div>
+                        <p>BMI &lt; 18.5</p>
+                        <div class="category-tip">Perlu menambah berat badan</div>
                     </div>
                     <div class="category-card normal">
                         <div class="category-icon">
@@ -197,85 +144,7 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2><i class="fas fa-star"></i> Apa yang Kamu Dapatkan?</h2>
-                <p>Lebih dari sekedar angka BMI - dapatkan panduan lengkap untuk hidup sehat</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3>Program Olahraga</h3>
-                    <p>Rekomendasi latihan sesuai kategori BMI dan jadwal sekolah</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3>Pola Makan</h3>
-                    <p>Contoh menu sehari-hari untuk remaja yang aktif</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <h3>Pola Istirahat</h3>
-                    <p>Tips tidur berkualitas untuk tumbuh kembang optimal</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Mindset Sehat</h3>
-                    <p>Pola pikir positif tentang tubuh dan kesehatan</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-heartbeat"></i> TeenHealth</h3>
-                    <p>Platform kesehatan khusus remaja untuk hidup lebih sehat dan bahagia.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Kategori Tips</h4>
-                    <ul>
-                        <li><a href="tips/underweight.html">Underweight</a></li>
-                        <li><a href="tips/ideal.html">Berat Badan Ideal</a></li>
-                        <li><a href="tips/overweight.html">Overweight</a></li>
-                        <li><a href="tips/obesitas.html">Obesitas</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Disclaimer</h4>
-                    <p>Kalkulator ini untuk edukasi. Konsultasikan dengan dokter untuk diagnosis medis.</p>
-                    <p>© 2024 TeenHealth. Untuk remaja Indonesia.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
     <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function () {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
         // Form submission
         document.getElementById('bmiForm').addEventListener('submit', function (e) {
             e.preventDefault();
